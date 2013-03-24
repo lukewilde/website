@@ -8,5 +8,8 @@
   },
   "repository": "",
   "author": "luke wilde",
-  "license": "BSD"
+  "license": "BSD",
+  "dependencies": {
+    "connect": "~2.7.3"
+  }
 }
