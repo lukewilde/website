@@ -1,7 +1,8 @@
 var connect = require('connect')
+  , gzippo = require('gzippo')
 
 
 var app = connect()
   .use(connect.logger('dev'))
-  .use(connect.static(__dirname + '/public'))
+  .use(gzippo.staticGzip(__dirname + '/public'))
  .listen(3111)

@@ -10,6 +10,7 @@
   "author": "luke wilde",
   "license": "BSD",
   "dependencies": {
-    "connect": "~2.7.3"
+    "connect": "~2.7.3",
+    "gzippo": "~0.2.0"
   }
 }
