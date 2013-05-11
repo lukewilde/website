@@ -21,8 +21,8 @@ app.use(stylus.middleware(
 
 app.use(express.static(__dirname + '/public'))
 
-app.get('/', function (req, res) {
-  res.render('index')
+app.get('*', function (req, res) {
+  res.render(req.path.substring(1, req.path.length))
 })
 
 app.listen(3111)
