@@ -40,3 +40,9 @@ Icon?
 
 # ZSH Cake plugin cache
 /.cake_task_cache
+
+# Node.js with Express and Stlyus
+public/css/*.css
+public/css/main/*.css
+public/css/admin/*.css
+/.monitor
