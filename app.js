@@ -27,10 +27,8 @@ app.use(stylus.middleware(
   }
 ))
 
-app.get('/test', function (req, res) {
-  res.render('test',
-  { title : 'Home' }
-  )
+app.get('*', function (req, res) {
+  res.render(req.path.substring(1, req.path.length))
 })
 
 app.listen(3111)
