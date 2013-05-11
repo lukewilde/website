@@ -1,0 +1,27 @@
+!!!5
+html
+  head
+    title Isabelle Smillie
+    link(rel='stylesheet', href='/css/global.css')
+
+  body
+    block navigation
+      h1 Isabelle Smillie
+      ul.navigation
+        li
+          a(href='/gallery') Gallery
+          span |
+        li
+          a(href='/projects') Projects
+          span |
+        li
+          a(href='/about') About
+
+    block content
+
+  block script
+    script(src='//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js')
+    script
+      if (typeof jQuery === 'undefined') {
+        document.write('<script src="/js/lib/jquery-1.9.1.min.js" />')
+      }
