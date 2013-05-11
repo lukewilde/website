@@ -1,0 +1,25 @@
+!!!5
+html
+  head
+    title Game of Thrones
+    link(rel='stylesheet', href='/styles/styles.css')
+
+  body
+    div.content
+      img(src='/img/game.jpg', alt='game') no-repeat center center fixed
+      h1
+
+  script(src='//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js')
+  script(src='/js/keep-size.js')
+  script(src='/js/countdown.jquery.js')
+  script
+
+    if (typeof jQuery === 'undefined') {
+      document.write('<script src="/js/lib/jquery-1.9.1.min.js" />')
+    }
+
+    keepSize($('.content'), $('img'), $('h1'))
+
+    $(function () {
+      $('h1').countdown(2013, 04, 01, 9, 0, 0, 'Game of Thrones!!')
+    })
