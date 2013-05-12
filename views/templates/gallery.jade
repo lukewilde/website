@@ -1,6 +1,5 @@
 extends layout
 block content
-  -console.log(images)
   .sub-navigation
     ul
       li
@@ -9,3 +8,6 @@ block content
         a(href='#lifestyle') Lifestyle
       li
         a(href='#travel') Travel
+  .gallery
+    each image, index in images
+      img(src='images/' + image.src, alt=image.name, data-id=index)

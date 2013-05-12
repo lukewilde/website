@@ -26,9 +26,31 @@ app.get('/gallery', function (req, res) {
 
   res.render('gallery',
     { images:
-      { name: 'Test'
-      , src: 'test.jpg'
-      }
+      [ { name: 'Test'
+        , src: 'test.jpg'
+        }
+      , { name: 'Test'
+        , src: 'test.jpg'
+        }
+      , { name: 'Test'
+        , src: 'test.jpg'
+        }
+      , { name: 'Test'
+        , src: 'test.jpg'
+        }
+      , { name: 'Test'
+        , src: 'test.jpg'
+        }
+      , { name: 'Test'
+        , src: 'test.jpg'
+        }
+      , { name: 'Test'
+        , src: 'test.jpg'
+        }
+      , { name: 'Test'
+        , src: 'test.jpg'
+        }
+      ]
     }
   )
 })
