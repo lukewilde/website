@@ -15,6 +15,7 @@ global-reset()
 a
   color #692323
   text-decoration none
+  display inline
 
 a:active
   color #676565
@@ -63,9 +64,6 @@ h3
   font-weight 100
   letter-spacing:0.35em
 
-img
-  margin 30px 0
-
 .navigation
   margin-bottom 40px
 
@@ -79,6 +77,9 @@ img
       list-style-type none
 
 .sub-navigation
+
+  width 200px
+  float left
 
   a:active
     color #692323
@@ -102,3 +103,47 @@ img
   ul
     li
       margin-bottom 20px
+
+.gallery
+
+  a
+    width 100%
+    height auto
+    display inline-block
+
+  a:hover img
+    opacity 0.9
+
+  line-height 0
+
+  -webkit-column-count 5
+  -webkit-column-gap 0px
+  -moz-column-count 5
+  -moz-column-gap 0px
+  column-count 5
+  column-gap 0px
+
+
+@media (max-width: 1200px)
+  .gallery
+    -moz-column-count 4
+    -webkit-column-count 4
+    column-count 4
+
+@media (max-width: 1000px)
+  .gallery
+    -moz-column-count 3
+    -webkit-column-count 3
+    column-count 3
+
+@media (max-width: 800px)
+  .gallery
+    -moz-column-count 2
+    -webkit-column-count 2
+    column-count 2
+
+@media (max-width: 400px)
+  .gallery
+    -moz-column-count 1
+    -webkit-column-count 1
+    column-count 1
