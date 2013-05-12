@@ -10,7 +10,8 @@ function compile(str, path) {
     .set('filename', path)
     .use(nib())
 }
-app.set('views', __dirname + '/views')
+
+app.set('views', __dirname + '/views/templates')
 app.set('view engine', 'jade')
 app.use(express.logger('dev'))
 app.use(stylus.middleware(
@@ -21,8 +22,21 @@ app.use(stylus.middleware(
 
 app.use(express.static(__dirname + '/public'))
 
+app.get('/gallery', function (req, res) {
+
+  res.render('gallery',
+    { images:
+      { name: 'Test'
+      , src: 'test.jpg'
+      }
+    }
+  )
+})
+
 app.get('*', function (req, res) {
   res.render(req.path.substring(1, req.path.length))
 })
+
+console.log('Server running on http://localhost:3111')
 
 app.listen(3111)
