@@ -10,9 +10,9 @@ block content
         a(href='#travel') Travel
   .gallery
     each section, index in sections
-      - var visible = (index === 0) ? 'visible' : 'none'
-      - console.log(index, visible)
-      .section(data-section=section.name, display=visible)
+      - var visible = (index === 0) ? '' : 'display:none'
+      - console.log(visible)
+      .section(data-section=section.name, style=visible)
         each image in section.images
           a(href='/images/' + image.src)
             img(src='/images/' + image.src, alt=image.name, data-id=image.slug)
