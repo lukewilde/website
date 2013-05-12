@@ -78,7 +78,7 @@ h3
 
 .sub-navigation
 
-  width 200px
+  width 140px
   float left
 
   a:active
@@ -105,17 +105,7 @@ h3
       margin-bottom 20px
 
 .gallery
-
-  a
-    width 100%
-    height auto
-    display inline-block
-
-  a:hover img
-    opacity 0.9
-
   line-height 0
-
   -webkit-column-count 5
   -webkit-column-gap 0px
   -moz-column-count 5
@@ -123,14 +113,26 @@ h3
   column-count 5
   column-gap 0px
 
+  img
+    padding 2px 4px
+    width 100%
+
+  a
+    width 100%
+    height auto
+    display inline-block
+
+  // a:hover
+  //   opacity 0.8
+
+
+@media (max-width: 1400px)
+  .gallery
+    -moz-column-count 5
+    -webkit-column-count 5
+    column-count 5
 
 @media (max-width: 1200px)
-  .gallery
-    -moz-column-count 4
-    -webkit-column-count 4
-    column-count 4
-
-@media (max-width: 1000px)
   .gallery
     -moz-column-count 3
     -webkit-column-count 3
@@ -138,12 +140,20 @@ h3
 
 @media (max-width: 800px)
   .gallery
-    -moz-column-count 2
-    -webkit-column-count 2
+    -moz-column-count 3
+    -webkit-column-count 3
     column-count 2
 
-@media (max-width: 400px)
+@media (max-width: 600px)
   .gallery
     -moz-column-count 1
     -webkit-column-count 1
     column-count 1
+    float none
+  .sub-navigation
+    float none
+    padding-bottom 30px
+    ul
+      li
+        display inline
+        padding-right 15px
