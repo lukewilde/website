@@ -11,7 +11,6 @@ block content
   .gallery
     each section, index in sections
       - var visible = (index === 0) ? '' : 'display:none'
-      - console.log(visible)
       .section(data-section=section.name, style=visible)
         each image in section.images
           a(href='/images/' + image.src)
