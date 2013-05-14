@@ -24,6 +24,11 @@ app.use(stylus.middleware(
 
 app.use(express.static(__dirname + '/public'))
 
+app.get('/', function (req, res) {
+  var image = portraitImages[Math.floor(Math.random() * portraitImages.length)]
+  res.render('index', {image: image})
+})
+
 app.get('/gallery', function (req, res) {
 
   res.render('gallery',
