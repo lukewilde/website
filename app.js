@@ -3,8 +3,8 @@ var gzippo = require('gzippo') // Enable.
   , stylus = require('stylus')
   , nib = require('nib')
   , app = express()
-  , lifestyleImages =require('./views/images/lifestyle')
   , indexView = require('./views/index')
+  , galleryView = require('./views/gallery')
 
 function compile(str, path) {
   return stylus(str)
@@ -28,18 +28,7 @@ app.get('/', function (req, res) {
 })
 
 app.get('/gallery', function (req, res) {
-
-  res.render('gallery',
-    { sections:
-      [ { name: 'portrait'
-        , images: portraitImages
-        }
-      , { name: 'lifestyle'
-        , images: lifestyleImages
-        }
-      ]
-    }
-  )
+  galleryView(req, res)
 })
 
 app.get('*', function (req, res) {
