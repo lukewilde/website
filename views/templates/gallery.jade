@@ -3,15 +3,12 @@ block content
   .sub-navigation
     ul
       li
-        a(href='#portrait') Portrait
+        a(href='/gallery/portrait') Portrait
       li
-        a(href='#lifestyle') Lifestyle
+        a(href='/gallery/lifestyle') Lifestyle
       li
-        a(href='#travel') Travel
+        a(href='/gallery/travel') Travel
   .gallery
-    each section, index in sections
-      - var visible = (index === 0) ? '' : 'display:none'
-      .section(data-section=section.name, style=visible)
-        each image in section.images
-          a(href='/images/' + image.src)
-            img(src='/images/' + image.src, alt=image.name, data-id=image.slug)
+    each image in images
+      a(href='/images/' + image.src)
+        img(src=image.src, alt=image.name)
