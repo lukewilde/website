@@ -10,5 +10,5 @@ block content
         a(href='/gallery/travel') Travel
   .gallery
     each image in images
-      a(href='/images/' + image.src)
+      a(href=image.src)
         img(src=image.src, alt=image.name)
