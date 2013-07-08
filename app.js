@@ -31,10 +31,6 @@ app.get('/gallery', function (req, res) {
   galleryView(req, res)
 })
 
-app.get('*', function (req, res) {
-  res.render(req.path.substring(1, req.path.length))
-})
-
 console.log('Server running on http://localhost:3111')
 
 app.listen(3111)
