@@ -3,8 +3,7 @@ var gzippo = require('gzippo') // Enable.
   , stylus = require('stylus')
   , nib = require('nib')
   , app = express()
-  , indexView = require('./views/index')
-  , galleryView = require('./views/gallery')
+  , makeRoutes = require('./routes')
 
 function compile(str, path) {
   return stylus(str)
@@ -23,13 +22,7 @@ app.use(stylus.middleware(
 
 app.use(express.static(__dirname + '/public'))
 
-app.get('/', function (req, res) {
-  indexView(req, res)
-})
-
-app.get('/gallery', function (req, res) {
-  galleryView(req, res)
-})
+makeRoutes(app)
 
 console.log('Server running on http://localhost:3111')
 
