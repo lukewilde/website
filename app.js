@@ -3,8 +3,8 @@ var gzippo = require('gzippo') // Enable.
   , stylus = require('stylus')
   , nib = require('nib')
   , app = express()
-  , portraitImages = require('./views/images/portrait')
   , lifestyleImages =require('./views/images/lifestyle')
+  , indexView = require('./views/index')
 
 function compile(str, path) {
   return stylus(str)
@@ -24,8 +24,7 @@ app.use(stylus.middleware(
 app.use(express.static(__dirname + '/public'))
 
 app.get('/', function (req, res) {
-  var image = portraitImages[Math.floor(Math.random() * portraitImages.length)]
-  res.render('index', {image: image})
+  indexView(req, res)
 })
 
 app.get('/gallery', function (req, res) {
