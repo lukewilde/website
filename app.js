@@ -1,5 +1,4 @@
-var connect = require('connect')
-  , gzippo = require('gzippo')
+var gzippo = require('gzippo') // Enable.
   , express = require('express')
   , stylus = require('stylus')
   , nib = require('nib')
