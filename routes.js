@@ -13,8 +13,11 @@ function makeRoutes(app) {
     return galleryView(req, res)
   })
 
-  app.get('/gallerys', function (req, res) {
+  app.get('/gallery', function (req, res) {
     return galleryView(req, res)
   })
 
+  app.get('/about', function (req, res) {
+    res.render('about')
+  })
 }
