@@ -1,7 +1,8 @@
-var portraitImages = require('./images/portrait')
+var getImage = require('../lib/get-image')()
 
-module.exports = function(req,res) {
+module.exports = function(req, res) {
 
-  var image = portraitImages[ Math.floor(Math.random() * portraitImages.length) ]
-  res.render('index', { image: image })
+  getImage.getRandom('big', function(image) {
+    res.render('index', { image: image })
+  })
 }
