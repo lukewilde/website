@@ -3,11 +3,11 @@ var _ = require('lodash')
 
 module.exports = function(req, res) {
 
-  var reqHasNoParams = req.params.length <= 0
-    , isInvalidType = !_.has(getImage.types, req.params)
-    , type = req.params[0]
+  var noType = typeof req.params.type === 'undefined'
+    , typeIsInvalid = (getImage.types.indexOf(req.params.type) < 0)
+    , type = req.params.type
 
-  if (reqHasNoParams || isInvalidType) {
+  if (noType || typeIsInvalid) {
     type = 'portraits'
   }
 

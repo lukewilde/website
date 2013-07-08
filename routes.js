@@ -9,7 +9,7 @@ function makeRoutes(app) {
     indexView(req, res)
   })
 
-  app.get('/gallery(/:type)', function (req, res) {
+  app.get('/gallery/(:type)', function (req, res) {
     return galleryView(req, res)
   })
 
