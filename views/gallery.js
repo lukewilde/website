@@ -1,5 +1,4 @@
-var _ = require('lodash')
-  , getImage = require('../lib/get-image')()
+var getImage = require('../lib/get-image')()
 
 module.exports = function(req, res) {
 
