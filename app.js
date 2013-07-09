@@ -8,6 +8,7 @@ var gzippo = require('gzippo') // Enable.
 function compile(str, path) {
   return stylus(str)
     .set('filename', path)
+    .set('compress', true)
     .use(nib())
 }
 
