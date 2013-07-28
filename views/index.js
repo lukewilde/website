@@ -5,6 +5,8 @@ module.exports = function(req, res) {
   getImage.getRandom('big', function(err, image) {
 
     if (err) {
+
+      console.log('500: ', err)
       res.render('500')
     }
 
