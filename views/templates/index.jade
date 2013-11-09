@@ -2,3 +2,18 @@ extends layout
 block content
   .splash
     img(src=image.src, alt=image.name)
+
+append script
+  script
+    $(function () {
+      var viewportHeight = $(window).height()
+        , navigationHeight = $('.navigation').outerHeight(true)
+        , resizeHeight = viewportHeight - navigationHeight - 70
+        , $splashImage = $('.splash img')
+        , origionalHeight = $splashImage.height()
+        , shouldResize = origionalHeight > resizeHeight
+
+        if (shouldResize) {
+          $splashImage.height(resizeHeight)
+        }
+    })
