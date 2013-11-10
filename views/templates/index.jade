@@ -16,4 +16,7 @@ append script
         if (shouldResize) {
           $splashImage.height(resizeHeight)
         }
+
+        // Prevent popping.
+        $splashImage.css('visibility', 'visible')
     })
