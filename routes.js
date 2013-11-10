@@ -10,11 +10,11 @@ function makeRoutes(app) {
   })
 
   app.get('/gallery/(:type)', function (req, res) {
-    return galleryView(req, res)
+    return galleryView(req, res, true)
   })
 
   app.get('/gallery', function (req, res) {
-    return galleryView(req, res)
+    return galleryView(req, res, true)
   })
 
   app.get('/about', function (req, res) {

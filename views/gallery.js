@@ -1,6 +1,14 @@
 var getImage = require('../lib/get-image')()
 
-module.exports = function(req, res) {
+module.exports = function(req, res, stock) {
+
+  if (stock) {
+    var images = getImage.getStock(15)
+
+    res.render('gallery',
+     { images: images }
+   )
+  }
 
   var noType = typeof req.params.type === 'undefined'
     , typeIsInvalid = (getImage.types.indexOf(req.params.type) < 0)
