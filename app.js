@@ -5,7 +5,6 @@ var express = require('express')
   , makeRoutes = require('./routes')
 
 function compile(str, path) {
-  console.log('pathpathpathpath', path)
   return stylus(str)
     .set('filename', path)
     .set('compress', true)
