@@ -1,11 +1,11 @@
-var gzippo = require('gzippo') // Enable.
-  , express = require('express')
+var express = require('express')
   , stylus = require('stylus')
   , nib = require('nib')
   , app = express()
   , makeRoutes = require('./routes')
 
 function compile(str, path) {
+  console.log('pathpathpathpath', path)
   return stylus(str)
     .set('filename', path)
     .set('compress', true)

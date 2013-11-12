@@ -1,0 +1,24 @@
+.gallery
+
+  position absolute
+  margin-left 150px
+
+  img
+    padding 2px 4px
+    background-image url('/images/loader.gif')
+    background-position center
+    background-repeat no-repeat
+
+  a
+    display inline-block
+
+  a:hover
+    opacity 0.8
+
+@media (max-width: 1024px)
+  .gallery
+    margin-left 0
+
+@media (max-width: 640px)
+  .gallery
+    text-align: center;
