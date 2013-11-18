@@ -1,0 +1,16 @@
+script
+  $(function () {
+    var viewportHeight = $(window).height()
+      , navigationHeight = $('.navigation').outerHeight(true)
+      , resizeHeight = viewportHeight - navigationHeight - 70
+      , $splashImage = $('.splash img')
+      , origionalHeight = $splashImage.height()
+      , shouldResize = origionalHeight > resizeHeight
+
+      if (shouldResize) {
+        $splashImage.height(resizeHeight)
+      }
+
+      // Prevent popping.
+      $splashImage.css('visibility', 'visible')
+  })
