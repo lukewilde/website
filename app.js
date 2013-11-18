@@ -22,7 +22,8 @@ app.use(stylus.middleware(
 
 app.use(express.static(__dirname + '/public'))
 
-makeRoutes(app)
+var debug = true
+makeRoutes(app, debug)
 
 console.log('Server running on http://localhost:3111')
 

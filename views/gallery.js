@@ -2,20 +2,18 @@ var getImage = require('../lib/get-image')()
 
 module.exports = function(req, res, stock) {
 
-  if (stock) {
-    var images = getImage.getStock(15)
+  console.log(getImage.types.indexOf(type))
+  console.log(type)
 
-    res.render('gallery',
-     { images: images }
-   )
+  var type = req.params.type
+    , typeIsInvalid = (getImage.types.indexOf(type) < 0)
+
+  if (typeIsInvalid) {
+    return res.redirect('/gallery/portrait');
   }
 
-  var noType = typeof req.params.type === 'undefined'
-    , typeIsInvalid = (getImage.types.indexOf(req.params.type) < 0)
-    , type = req.params.type
-
-  if (noType || typeIsInvalid) {
-    type = 'portraits'
+  if (stock) {
+    return res.render('gallery', { images: getImage.getStock(15), type: type })
   }
 
   getImage.getCollection(type, 'small', function(err, images) {
@@ -25,8 +23,6 @@ module.exports = function(req, res, stock) {
       res.render('500')
     }
 
-    res.render('gallery',
-       { images: images }
-     )
+    res.render('gallery', { images: images, type: type })
   })
 }
