@@ -1,13 +1,9 @@
 extends layout
+
 block content
-  .sub-navigation
-    ul
-      li
-        a(href='/gallery/portrait') Portrait
-      li
-        a(href='/gallery/lifestyle') Lifestyle
-      li
-        a(href='/gallery/travel') Travel
+
+  include bits/sub-nav.jade
+  
   .gallery
     each image in images
       a(href=image.big)
