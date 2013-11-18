@@ -2,9 +2,6 @@ var getImage = require('../lib/get-image')()
 
 module.exports = function(req, res, stock) {
 
-  console.log(getImage.types.indexOf(type))
-  console.log(type)
-
   var type = req.params.type
     , typeIsInvalid = (getImage.types.indexOf(type) < 0)
 
