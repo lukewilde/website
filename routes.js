@@ -14,7 +14,7 @@ function makeRoutes(app) {
   })
 
   app.get('/gallery', function (req, res) {
-    return galleryView(req, res, true)
+    res.redirect('/gallery/portrait');
   })
 
   app.get('/about', function (req, res) {
