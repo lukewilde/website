@@ -1,9 +1,9 @@
 extends layout
 
-block content
-
+block sub-nav
   include bits/sub-nav.jade
-  
+
+block content
   .gallery
     each image in images
       a(href='/gallery/' + type + '/' + image.name)

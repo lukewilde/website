@@ -1,8 +1,8 @@
 script
   $(function () {
     var viewportHeight = $(window).height()
-      , navigationHeight = $('.navigation').outerHeight(true)
-      , resizeHeight = viewportHeight - navigationHeight - 70
+      , headerHeight = $('.header').outerHeight(true)
+      , resizeHeight = viewportHeight - headerHeight - 70
       , $splashImage = $('.splash img')
       , origionalHeight = $splashImage.height()
       , shouldResize = origionalHeight > resizeHeight
