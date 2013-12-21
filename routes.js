@@ -25,4 +25,8 @@ function makeRoutes(app, imageCache, debug) {
   app.get('/about', function (req, res) {
     res.render('about')
   })
+
+  app.use(function(req, res, next){
+    res.render('404')
+  });
 }
