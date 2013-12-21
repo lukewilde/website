@@ -4,7 +4,11 @@ module.exports = function(req, res, stock) {
 
   if (stock) {
     image = 'http://placeholder.clockhosting.com/' + image
+    res.render('gallery-item', { image: image })
+    return
   }
+
+
 
   res.render('gallery-item', { image: image })
 }

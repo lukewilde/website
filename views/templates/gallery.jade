@@ -7,4 +7,4 @@ block content
   .gallery
     each image in images
       a(href='/gallery/' + type + '/' + image.name)
-        img(src=image.src, alt=image.name)
+        img(src=image.small, alt=image.name)

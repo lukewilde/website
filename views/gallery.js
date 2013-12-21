@@ -13,7 +13,7 @@ module.exports = function(req, res, stock) {
     return res.render('gallery', { images: getImage.getStock(15), type: type })
   }
 
-  getImage.getCollection(type, 'small', function(err, images) {
+  getImage.getCollection(type, function(err, images) {
 
     if (err) {
       console.log(err)

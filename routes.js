@@ -4,14 +4,14 @@ var indexView = require('./views/index')
 
 module.exports = makeRoutes
 
-function makeRoutes(app, debug) {
+function makeRoutes(app, imageCache, debug) {
 
   app.get('/', function (req, res) {
     indexView(req, res)
   })
 
   app.get('/gallery/(:type)/(:image)', function (req, res) {
-    return galleryItemView(req, res, debug)
+    return galleryItemView(req, res, imageCache, debug)
   })
 
   app.get('/gallery/(:type)', function (req, res) {

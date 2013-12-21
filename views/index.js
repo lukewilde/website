@@ -2,7 +2,7 @@ var getImage = require('../lib/get-image')()
 
 module.exports = function(req, res) {
 
-  getImage.getRandom('big', function(err, image) {
+  getImage.getRandom(function(err, image) {
 
     if (err) {
 
