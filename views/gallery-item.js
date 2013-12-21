@@ -1,4 +1,6 @@
-module.exports = function(req, res, stock) {
+var _ = require('lodash')
+
+module.exports = function(req, res, imageCache, stock) {
 
   var image = req.params.image
 
@@ -8,7 +10,11 @@ module.exports = function(req, res, stock) {
     return
   }
 
+  image = _.find(imageCache[req.params.type], { name: image })
 
-
-  res.render('gallery-item', { image: image })
+  if (image) {
+    res.render('gallery-item', { image: image, imageCache: imageCache })
+  } else {
+    res.render('404')
+  }
 }
