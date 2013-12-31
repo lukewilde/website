@@ -10,7 +10,8 @@ module.exports = function(req, res, imageCache, stock) {
     return
   }
 
-  var imageByType = imageCache[req.params.type]
+  var type = req.params.type
+    , imageByType = imageCache[type]
     , imageIndex = _.findIndex(imageByType, { name: image })
     , next = imageByType[imageIndex +1]
     , image = imageByType[imageIndex]
@@ -24,6 +25,7 @@ module.exports = function(req, res, imageCache, stock) {
       { image: image
       , next: next
       , prev: prev
+      , type: type
       }
     )
   } else {
