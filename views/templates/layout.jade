@@ -7,8 +7,9 @@ html
   body
     block ding
       .header
-        h1 
+        h1
           a(href='/') Isabelle Smillie
+        hr
         ul
           li
             a(href='/gallery/portrait') Gallery
@@ -21,6 +22,21 @@ html
         block sub-nav
 
     block content
+
+    hr
+    span &copy; 
+      strong Isabelle Smillie. 
+      | All rights reserved
+
+    ul.social-media
+      li
+        a.behance(href="http://www.google.com")
+      li
+        a.instagram(href="http://www.google.com")
+      li
+        a.pinterest(href="http://www.google.com")
+      li
+        a.twitter(href="http://www.google.com")
 
   block script
     script(src='/js/lib/jquery-1.9.1.js')

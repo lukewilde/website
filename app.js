@@ -10,6 +10,10 @@ function compile(str, path) {
     .set('filename', path)
     .set('compress', true)
     .use(nib())
+    .define('url', stylus.url({
+      paths : [__dirname + '/public'],
+      limit : 10000
+    }));
 }
 
 app.set('views', __dirname + '/views/templates')
