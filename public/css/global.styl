@@ -65,13 +65,16 @@ ul.social-media
   li
     display inline
     list-style-type none
+    float left
 
     a
       width 19px
       height 19px
       display block
-      float left
       margin-left 3px
+
+      strong
+        display none
 
     a.behance
       background-image url('/images/social/behance.png')
@@ -105,3 +108,13 @@ hr.padded
 .footer
   width 60%
   margin 0 auto 20px auto
+
+@media only screen and (max-width: 767px)
+
+  .footer
+    text-align center
+
+  ul.social-media
+    width 88px
+    margin 10px auto 0 auto
+    float none
