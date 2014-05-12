@@ -9,6 +9,6 @@ function makeRoutes(app) {
   })
 
   app.use(function(req, res, next){
-    res.render('404')
-  });
+    res.render('error/404')
+  })
 }
