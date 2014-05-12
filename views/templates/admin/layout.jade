@@ -1,70 +1,43 @@
 doctype
 html
-  include bits/ascii
-  head
-    title Luke Wilde - Admin
-    link(rel='stylesheet', href='/css/index.css')
-  body.admin
+head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
 
-    div.container
-      div.blog-header
-        h1.blog-title Luke Wilde
-        p.lead.blog-description The official example template of creating a blog with Bootstrap.
-      ul
-        li
-          a(href='/blog') Blog
-          span |
-        li
-          a(href='/portfolio') Portfolio
-          span |
-        li
-          a(href='/labs') Labs
-      block sub-nav
+    link(rel='stylesheet', href='/css/admin/index.css')
 
-      div.row
-        div.col-sm-8.blog-main
+    title Dashboard Template for Bootstrap
+
+  body
+    .navbar.navbar-inverse.navbar-fixed-top(role='navigation')
+      .container-fluid
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='#') Lukas Wildas CMSas
+        .navbar-collapse.collapse
+          ul.nav.navbar-nav.navbar-right
+            li
+              a(href='#') Dashboard
+            li
+              a(href='#') Settings
+            li
+              a(href='#') Profile
+            li
+              a(href='#') Help
+          form.navbar-form.navbar-right
+            input.form-control(type='text', placeholder='Search...')
+    .container-fluid
+      .row
+        .col-sm-3.col-md-2.sidebar
+          ul.nav.nav-sidebar
+            li.active
+              a(href='#') Overview
+            li
+              a(href='') Another nav item
+        .col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2.main
+          h1.page-header Dashboard
           block content
-
-        div.col-sm-3.col-sm-offset-1.blog-sidebar
-          block side-bar
-            div.sidebar-module.sidebar-module-inset
-              h4 Widget
-              p Malesuada a lacinia sit amet, dapibus in odio. Quisque blandit ligula a mauris auctor, vitae elementum diam rhoncus. Suspendisse venenatis nisl molestie, fermentum sem me.
-
-            div.sidebar-module
-              h4 List of stuff
-              ol
-                li January 2014
-                li December 2013
-                li November 2013
-                li October 2013
-                li September 2013
-                li August 2013
-                li July 2013
-
-    block footer
-
-      .blog-footer
-
-        span &copy;
-          strong Luke Wilde.
-          |  All rights reserved
-
-        ul.contact
-          li
-            a.twitter(href="https://twitter.com/lukewilde")
-              strong Twitter
-          li
-            a.email(mailto="luke.wilde@gmail.com")
-              strong Email
-          li
-            a.cv(href="http://lukewilde.co.uk/rss")
-              strong CV
-          li
-            a.rss(href="http://lukewilde.co.uk/cv")
-              strong RSS
-
-  block script
-    script(src='/js/lib/jquery-1.9.1.js')
-
-    include bits/ga.jade

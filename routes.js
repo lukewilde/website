@@ -1,6 +1,7 @@
 module.exports = makeRoutes
 
 var indexView = require('./views/index')
+  , adminView = require('./views/admin')
 
 function makeRoutes(app) {
 
@@ -9,7 +10,7 @@ function makeRoutes(app) {
   })
 
   app.get('/admin', function (req, res) {
-    indexView(req, res)
+    adminView(req, res)
   })
 
   app.use(function(req, res, next){
