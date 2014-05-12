@@ -3,6 +3,8 @@ var express = require('express')
   , nib = require('nib')
   , app = express()
   , makeRoutes = require('./routes')
+  , MongoClient = require('mongodb').MongoClient
+  , port = 3112
 
 function compile(str, path) {
   return stylus(str)
@@ -26,12 +28,16 @@ app.use(stylus.middleware(
 
 app.use(express.static(__dirname + '/public'))
 
-var debug = false
+MongoClient.connect('mongodb://127.0.0.1:27017/lukewilde', function(err, db) {
+  if(err) throw err
 
+  app.use(function(req, res, next) {
+      req.db = db
+      next()
+  })
 
+  makeRoutes(app)
 
-makeRoutes(app, debug)
-
-console.log('Server running on http://localhost:3112')
-
-app.listen(3112)
+  console.log('Server running on http://localhost:' + port)
+  app.listen(port)
+})
