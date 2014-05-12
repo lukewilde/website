@@ -28,13 +28,10 @@ app.use(bodyParser())
 app.use(session({ secret: '....well good open sourced key you got there mate' }))
 app.use(flash())
 app.use(compress())
-
 app.use(passport.initialize())
 app.use(passport.session())
 app.use(morgan('short'))
-
 app.use(express.static(__dirname + '/public'))
-
 app.set('views', __dirname + '/views/templates')
 app.set('view engine', 'jade')
 app.use(stylus.middleware(

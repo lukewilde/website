@@ -1,19 +1,14 @@
 module.exports = makeRoutes
 
 var indexView = require('./views/index')
-  , adminView = require('./views/admin')
+  , adminRouter = require('./routes/admin')
   , loginView = require('./views/login')
-  , ensureAuthenticated = require('./lib/ensure-authenticated')
   , passport = require('passport')
 
 function makeRoutes(app) {
 
   app.get('/', function (req, res) {
     indexView(req, res)
-  })
-
-  app.get('/admin', ensureAuthenticated, function (req, res) {
-    adminView(req, res)
   })
 
   app.post('/login', passport.authenticate('local',
@@ -23,12 +18,19 @@ function makeRoutes(app) {
     }
   ))
 
+  app.get('/logout', function(req, res){
+    req.logout()
+    res.redirect('/')
+  })
+
+  app.use('/admin', adminRouter)
+
   app.get('/login', function (req, res) {
     loginView(req, res, { messages: req.flash('error') })
   })
 
   app.use(function(req, res){
-    res.render('error/404', { status: 404, url: req.url });
+    res.render('error/404', { status: 404, url: req.url })
   })
 
   app.use(function(error, req, res) {
@@ -38,6 +40,6 @@ function makeRoutes(app) {
     res.render('500', {
         status: error.status || 500
       , error: error
-    });
-  });
+    })
+  })
 }
