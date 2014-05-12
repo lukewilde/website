@@ -4,6 +4,7 @@ var indexView = require('./views/index')
   , adminView = require('./views/admin')
   , loginView = require('./views/login')
   , ensureAuthenticated = require('./lib/ensure-authenticated')
+  , passport = require('passport')
 
 function makeRoutes(app) {
 
@@ -14,6 +15,12 @@ function makeRoutes(app) {
   app.get('/admin', ensureAuthenticated, function (req, res) {
     adminView(req, res)
   })
+
+  app.post('/login', passport.authenticate('local',
+    { successRedirect: '/admin'
+    , failureRedirect: '/login'
+    }
+  ))
 
   app.get('/login', function (req, res) {
     loginView(req, res)

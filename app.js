@@ -5,6 +5,7 @@ var express = require('express')
   , makeRoutes = require('./routes')
   , app = express()
   , port = 3112
+  , configurePassport = require('./lib/configure-passport')
 
 function compile(str, path) {
   return stylus(str)
@@ -34,9 +35,10 @@ app.use(stylus.middleware(
   }
 ))
 
-
 MongoClient.connect('mongodb://127.0.0.1:27017/lukewilde', function(err, db) {
   if(err) throw err
+
+  configurePassport(db)
 
   app.use(function(req, res, next) {
       req.db = db
