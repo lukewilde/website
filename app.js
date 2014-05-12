@@ -3,7 +3,6 @@ var express = require('express')
   , nib = require('nib')
   , app = express()
   , makeRoutes = require('./routes')
-  , buildImageCache = require('./lib/image-cache')
 
 function compile(str, path) {
   return stylus(str)
@@ -29,15 +28,10 @@ app.use(express.static(__dirname + '/public'))
 
 var debug = false
 
-buildImageCache(function (err, imageCache) {
 
-  if (err) {
-    return console.error('Image cache load failure', err)
-  }
 
-  makeRoutes(app, imageCache, debug)
+makeRoutes(app, debug)
 
-  console.log('Server running on http://localhost:3111')
+console.log('Server running on http://localhost:3112')
 
-  app.listen(3111)
-})
+app.listen(3112)
