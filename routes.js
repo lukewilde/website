@@ -8,6 +8,10 @@ function makeRoutes(app) {
     indexView(req, res)
   })
 
+  app.get('/admin', function (req, res) {
+    indexView(req, res)
+  })
+
   app.use(function(req, res, next){
     res.render('error/404')
   })
