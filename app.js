@@ -11,7 +11,7 @@ var express = require('express')
   , MongoClient = require('mongodb').MongoClient
   , makeRoutes = require('./lib/routes')
   , configurePassport = require('./lib/configure-passport')
-  , articleService = require('./lib/services/article-service')
+  , articleService = require('./lib/services/article/service')
   , port = 3112
   , app = express()
 
@@ -54,7 +54,7 @@ MongoClient.connect('mongodb://127.0.0.1:27017/lukewilde', function(err, db) {
       next()
   })
 
-  makeRoutes(app)
+  makeRoutes(app, serviceLocator)
 
   console.log('Server running on http://localhost:' + port)
   app.listen(port)
