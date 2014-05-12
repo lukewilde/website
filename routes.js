@@ -3,6 +3,7 @@ module.exports = makeRoutes
 var indexView = require('./views/index')
   , adminView = require('./views/admin')
   , loginView = require('./views/login')
+  , ensureAuthenticated = require('./lib/ensure-authenticated')
 
 function makeRoutes(app) {
 
@@ -10,7 +11,7 @@ function makeRoutes(app) {
     indexView(req, res)
   })
 
-  app.get('/admin', function (req, res) {
+  app.get('/admin', ensureAuthenticated, function (req, res) {
     adminView(req, res)
   })
 
