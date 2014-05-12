@@ -48,6 +48,28 @@
         }
       }
     },
+    "compression": {
+      "version": "1.0.2",
+      "from": "compression@",
+      "resolved": "http://registry.npmjs.org/compression/-/compression-1.0.2.tgz",
+      "dependencies": {
+        "bytes": {
+          "version": "0.3.0",
+          "from": "bytes@0.3.0",
+          "resolved": "http://registry.npmjs.org/bytes/-/bytes-0.3.0.tgz"
+        },
+        "negotiator": {
+          "version": "0.4.3",
+          "from": "negotiator@0.4.3",
+          "resolved": "http://registry.npmjs.org/negotiator/-/negotiator-0.4.3.tgz"
+        },
+        "compressible": {
+          "version": "1.0.1",
+          "from": "compressible@1.0.1",
+          "resolved": "http://registry.npmjs.org/compressible/-/compressible-1.0.1.tgz"
+        }
+      }
+    },
     "connect-flash": {
       "version": "0.1.1",
       "from": "connect-flash@^0.1.1",
