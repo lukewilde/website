@@ -14,15 +14,15 @@ function compile(str, path) {
     .define('url', stylus.url({
       paths : [__dirname + '/public'],
       limit : 10000
-    }));
+    }))
 }
 
-app.use(express.cookieParser());
-app.use(express.bodyParser());
-app.use(express.session({ secret: '....well good open sourced key you got there mate' }));
+app.use(express.cookieParser())
+app.use(express.bodyParser())
+app.use(express.session({ secret: '....well good open sourced key you got there mate' }))
 
-app.use(passport.initialize());
-app.use(passport.session());
+app.use(passport.initialize())
+app.use(passport.session())
 
 app.use(express.static(__dirname + '/public'))
 
