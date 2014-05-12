@@ -4,27 +4,49 @@ html
   head
     title Luke Wilde
     link(rel='stylesheet', href='/css/index.css')
+    link(rel='stylesheet', href='//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/css/bootstrap.blog.min.css')
   body
-    block ding
-      .header
-        h1
-          a(href='/') Luke Wilde
-        ul
-          li
-            a(href='/blog') Blog
-            span |
-          li
-            a(href='/portfolio') Portfolio
-            span |
-          li
-            a(href='/labs') Labs
-        block sub-nav
 
-    block content
+    div.container
+      div.blog-header
+        h1.blog-title Luke Wilde
+        p.lead.blog-description The official example template of creating a blog with Bootstrap.
+      ul
+        li
+          a(href='/blog') Blog
+          span |
+        li
+          a(href='/portfolio') Portfolio
+          span |
+        li
+          a(href='/labs') Labs
+      block sub-nav
+
+      div.row
+        div.col-sm-8.blog-main
+          block content
+
+        div.col-sm-3.col-sm-offset-1.blog-sidebar
+          block side-bar
+            div.sidebar-module.sidebar-module-inset
+              h4 Widget
+              p Malesuada a lacinia sit amet, dapibus in odio. Quisque blandit ligula a mauris auctor, vitae elementum diam rhoncus. Suspendisse venenatis nisl molestie, fermentum sem me.
+
+            div.sidebar-module
+              h4 List of stuff
+              ol
+                li January 2014
+                li December 2013
+                li November 2013
+                li October 2013
+                li September 2013
+                li August 2013
+                li July 2013
 
     block footer
 
-      .footer
+      .blog-footer
 
         span &copy;
           strong Luke Wilde.

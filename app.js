@@ -1,6 +1,5 @@
 var express = require('express')
   , stylus = require('stylus')
-  , nib = require('nib')
   , app = express()
   , makeRoutes = require('./routes')
   , MongoClient = require('mongodb').MongoClient
@@ -10,7 +9,6 @@ function compile(str, path) {
   return stylus(str)
     .set('filename', path)
     .set('compress', true)
-    .use(nib())
     .define('url', stylus.url({
       paths : [__dirname + '/public'],
       limit : 10000
