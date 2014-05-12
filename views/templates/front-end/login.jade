@@ -1,10 +1,9 @@
 extends layout
 block content
 
-  div.panel.panel-default
+  div.panel.panel-default(class=failedAttempt ? "panel-danger" : "")
     div.panel-heading
       h3.panel-title Login
-
     div.panel-body
 
       form(action="/login", method="post", role="form")

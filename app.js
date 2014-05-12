@@ -1,6 +1,7 @@
 var express = require('express')
   , stylus = require('stylus')
   , passport = require('passport')
+  , flash = require('connect-flash')
   , MongoClient = require('mongodb').MongoClient
   , makeRoutes = require('./routes')
   , app = express()
@@ -23,6 +24,7 @@ app.use(express.session({ secret: '....well good open sourced key you got there 
 
 app.use(passport.initialize())
 app.use(passport.session())
+app.use(flash())
 
 app.use(express.static(__dirname + '/public'))
 

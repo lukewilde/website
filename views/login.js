@@ -1,4 +1,8 @@
-module.exports = function(req, res) {
+module.exports = function(req, res, options) {
 
-  res.render('front-end/login', { })
+  options.failedAttempt = options.messages.length >= 1 ? true : false
+
+  console.log(options.failedAttempt)
+
+  res.render('front-end/login', options)
 }

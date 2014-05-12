@@ -19,11 +19,12 @@ function makeRoutes(app) {
   app.post('/login', passport.authenticate('local',
     { successRedirect: '/admin'
     , failureRedirect: '/login'
+    , failureFlash: true
     }
   ))
 
   app.get('/login', function (req, res) {
-    loginView(req, res)
+    loginView(req, res, { messages: req.flash('error') })
   })
 
   app.use(function(req, res, next){
