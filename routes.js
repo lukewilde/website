@@ -27,7 +27,17 @@ function makeRoutes(app) {
     loginView(req, res, { messages: req.flash('error') })
   })
 
-  app.use(function(req, res, next){
-    res.render('error/404')
+  app.use(function(req, res){
+    res.render('error/404', { status: 404, url: req.url });
   })
+
+  app.use(function(error, req, res) {
+    // we may use properties of the error object
+    // here and next(err) appropriately, or if
+    // we possibly recovered from the error, simply next().
+    res.render('500', {
+        status: error.status || 500
+      , error: error
+    });
+  });
 }
