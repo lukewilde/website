@@ -8,7 +8,7 @@ var express = require('express')
   , morgan = require('morgan')
   , compress = require('compression')
   , MongoClient = require('mongodb').MongoClient
-  , makeRoutes = require('./routes')
+  , makeRoutes = require('./lib/routes')
   , configurePassport = require('./lib/configure-passport')
   , port = 3112
   , app = express()
@@ -32,7 +32,7 @@ app.use(passport.initialize())
 app.use(passport.session())
 app.use(morgan('short'))
 app.use(express.static(__dirname + '/public'))
-app.set('views', __dirname + '/views/templates')
+app.set('views', __dirname + '/templates')
 app.set('view engine', 'jade')
 app.use(stylus.middleware(
   { src: __dirname + '/public/'
