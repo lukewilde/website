@@ -7,9 +7,11 @@ var express = require('express')
   , session = require('express-session')
   , morgan = require('morgan')
   , compress = require('compression')
+  , serviceLocator = require('service-locator')()
   , MongoClient = require('mongodb').MongoClient
   , makeRoutes = require('./lib/routes')
   , configurePassport = require('./lib/configure-passport')
+  , articleService = require('./lib/services/article-service')
   , port = 3112
   , app = express()
 
@@ -39,6 +41,8 @@ app.use(stylus.middleware(
   , compile: compile
   }
 ))
+
+serviceLocator.register('article', articleService)
 
 MongoClient.connect('mongodb://127.0.0.1:27017/lukewilde', function(err, db) {
   if(err) throw err
