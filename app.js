@@ -2,11 +2,15 @@ var express = require('express')
   , stylus = require('stylus')
   , passport = require('passport')
   , flash = require('connect-flash')
+  , cookieParser = require('cookie-parser')
+  , bodyParser = require('body-parser')
+  , session = require('express-session')
+  , morgan = require('morgan')
   , MongoClient = require('mongodb').MongoClient
   , makeRoutes = require('./routes')
-  , app = express()
-  , port = 3112
   , configurePassport = require('./lib/configure-passport')
+  , port = 3112
+  , app = express()
 
 function compile(str, path) {
   return stylus(str)
@@ -18,19 +22,19 @@ function compile(str, path) {
     }))
 }
 
-app.use(express.cookieParser())
-app.use(express.bodyParser())
-app.use(express.session({ secret: '....well good open sourced key you got there mate' }))
+app.use(cookieParser())
+app.use(bodyParser())
+app.use(session({ secret: '....well good open sourced key you got there mate' }))
+app.use(flash())
 
 app.use(passport.initialize())
 app.use(passport.session())
-app.use(flash())
+app.use(morgan('short'))
 
 app.use(express.static(__dirname + '/public'))
 
 app.set('views', __dirname + '/views/templates')
 app.set('view engine', 'jade')
-app.use(express.logger('dev'))
 app.use(stylus.middleware(
   { src: __dirname + '/public/'
   , compile: compile
