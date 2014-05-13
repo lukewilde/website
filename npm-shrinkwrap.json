@@ -538,6 +538,11 @@
         }
       }
     },
+    "service-locator": {
+      "version": "1.0.0",
+      "from": "service-locator@",
+      "resolved": "http://registry.npmjs.org/service-locator/-/service-locator-1.0.0.tgz"
+    },
     "stylus": {
       "version": "0.45.0",
       "from": "stylus@^0.45.0",
