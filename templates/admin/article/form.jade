@@ -1,0 +1,39 @@
+extends ../layout
+
+block content
+
+  p Articles are amazing.
+
+  h2.sub-header Section title
+
+  div.panel.panel-default
+    div.panel-heading
+      h3.panel-title Article
+    div.panel-body
+
+      form(action="", method="post", role="form")
+
+        .form-group
+          label(for="headline") headline
+          input.form-control(type="text", name="headline", placeholder="headline")
+
+        .form-group
+          label(for="subtitle") subtitle
+          input.form-control(type="text", name="subtitle", placeholder="subtitle")
+
+        .form-group
+          label(for="slug") slug
+          input.form-control(type="text", name="slug", placeholder="slug")
+
+        .form-group
+          label(for="description") description
+          input.form-control(type="text", name="description", placeholder="description")
+
+        .form-group
+          label(for="body") body
+          input.form-control(type="text", name="body", placeholder="body")
+
+        .btn-group
+          button.btn.btn-primary(type="submit") Save
+          button.btn.btn-default(type="submit", name="draft", value="true") Draft
+          button.btn.btn-warning(type="submit", name="publish", value="true") Publish
