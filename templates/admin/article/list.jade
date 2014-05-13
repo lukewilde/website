@@ -2,23 +2,34 @@ extends ../layout
 
 block content
 
+  h1 Articles
+
   p Oh yes, well isn't this lovely. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ullamcorper quis nulla ut congue. Phasellus pretium nibh a nisi posuere aliquet. Suspendisse potenti. Praesent sagittis sem orci, non volutpat diam varius in. Duis nec tempor tortor. Cras feugiat, sem eu tincidunt tincidunt, elit libero porta libero, sed laoreet sapien lectus vel leo. Ut vehicula purus sit amet pulvinar euismod. Curabitur vestibulum erat sed diam consequat scelerisque nec at quam. Quisque nec dolor consequat, ullamcorper ante non, convallis dolor. Quisque sed consectetur nisl. Vestibulum vulputate lacus eu velit pulvinar, a blandit risus venenatis.
 
-  h2.sub-header Section title
+  a.btn.btn-primary.pull-right(href='/admin/article/new') New Article
+
+  h2.sub-header Article list
   .table-responsive
     table.table.table-striped
       thead
         tr
-          th headline
-          th subtitle
-          th slug
-          th description
-          th body
+          th Edit
+          th Headline
+          th Subtitle
+          th Slug
+          th Description
+          th Body
+          th Delete
       tbody
         for article in articles
           tr
+            td
+              a.btn.btn-primary(href="/admin/article/edit/" + article.slug) Edit
             td=article.headline
             td=article.subtitle
             td=article.slug
             td=article.description
             td=article.body
+            td
+              a.btn.btn-danger(href="/admin/article/delete/" + article.slug) Delete
+

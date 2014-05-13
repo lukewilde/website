@@ -18,31 +18,20 @@ head
             span.icon-bar
             span.icon-bar
 
-          a.navbar-brand(href='#') Lukas Wildas CMS
+          a.navbar-brand(href='/') Lukas Wildas
 
         .navbar-collapse.collapse
           ul.nav.navbar-nav.navbar-right
             li
-              a(href='#') Dashboard
-            li
-              a(href='#') Settings
-            li
-              a(href='#') Profile
-            li
-              a(href='#') Help
+              a(href='/admin/article') Articles
 
     .container-fluid
       .row
-        .col-sm-3.col-md-2.sidebar
-          ul.nav.nav-sidebar
-            li.active
-              a(href='/admin/article') Articles
-            li
-              a(href='/admin/article/new') > New Article
+        block container
+          div.container
 
-        .col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2.main
-          h1.page-header Dashboard
-          block content
+            block content
+              h1.page-header Dashboard
 
     block script
       script(src="/js/lib/jquery-2.1.1.min.js")

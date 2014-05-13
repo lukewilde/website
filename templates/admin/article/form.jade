@@ -2,38 +2,40 @@ extends ../layout
 
 block content
 
-  p Articles are amazing.
+  h1.page-header Article control
 
-  h2.sub-header Section title
-
-  div.panel.panel-default
-    div.panel-heading
-      h3.panel-title Article
-    div.panel-body
-
-      form(action="", method="post", role="form")
+  form(action="", method="post", role="form")
+    div.panel.panel-default
+      div.panel-heading
+        h3.panel-title Basic Details
+      div.panel-body
 
         .form-group
-          label(for="headline") headline
-          input.form-control(type="text", name="headline", value=headline)
+          label(for="headline") Headline
+          input.form-control(type="text", name="headline", value=article.headline)
 
         .form-group
-          label(for="subtitle") subtitle
-          input.form-control(type="text", name="subtitle", value=subtitle)
+          label(for="slug") Slug
+          input.form-control(type="text", name="slug", value=article.slug)
 
         .form-group
-          label(for="slug") slug
-          input.form-control(type="text", name="slug", value=slug)
+          label(for="subtitle") Subtitle
+          input.form-control(type="text", name="subtitle", value=article.subtitle)
 
         .form-group
-          label(for="description") description
-          input.form-control(type="text", name="description", value=description)
+          label(for="description") Description
+          input.form-control(type="text", name="description", value=article.description)
 
         .form-group
-          label(for="body") body
-          input.form-control(type="text", name="body", value=body)
+          label(for="body") Body
+          textarea.form-control(name="body", rows=10)=article.body
+          //- input.form-control
 
         .btn-group
+          button.btn.btn-default(type="submit") Cancel
+
+        .btn-group.pull-right
           button.btn.btn-primary(type="submit") Save
           button.btn.btn-default(type="submit", name="draft", value="true") Draft
           button.btn.btn-warning(type="submit", name="publish", value="true") Publish
+
