@@ -23,7 +23,8 @@
     "schemata": "^2.0.1",
     "service-locator": "^1.0.0",
     "stylus": "^0.45.0",
-    "validity": "0.0.3"
+    "validity": "0.0.3",
+    "validity-unique-property": "^0.2.0"
   },
   "devDependencies": {},
   "scripts": {
