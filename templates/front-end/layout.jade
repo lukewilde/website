@@ -10,32 +10,33 @@ html
     title Luke Wilde | Games Programmer
   body
 
-    div.container
-      div.blog-header
-        h1.blog-title Luke Wilde
-        p.lead.blog-description Polyboarding programmer.
-      ul
-        li
-          a(href='/blog') Blog
-          span |
-        li
-          a(href='/portfolio') Portfolio
-          span |
-        li
-          a(href='/labs') Labs
-      block sub-nav
+    .container
+      .row.clear
+        .col-sm-5
+          h1.blog-title Luke Wilde
+          p.lead.blog-description Polyboarding programmer.
 
-      div.row
-        div.col-sm-8.blog-main
+        ul.col-sm-6.list-inline
+          li
+            a(href='/blog') Blog
+            span |
+          li
+            a(href='/portfolio') Portfolio
+            span |
+          li
+            a(href='/labs') Labs
+
+      .row.clear
+        .col-sm-8.blog-main
           block content
 
-        div.col-sm-3.col-sm-offset-1.blog-sidebar
+        .col-sm-3.col-sm-offset-1.blog-sidebar
           block side-bar
-            div.sidebar-module.sidebar-module-inset
+            .sidebar-module.sidebar-module-inset
               h4 Widget
               p Malesuada a lacinia sit amet, dapibus in odio. Quisque blandit ligula a mauris auctor, vitae elementum diam rhoncus. Suspendisse venenatis nisl molestie, fermentum sem me.
 
-            div.sidebar-module
+            .sidebar-module
               h4 List of stuff
               ol
                 li January 2014
