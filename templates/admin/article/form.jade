@@ -67,9 +67,12 @@ block container
 
       script.
         $(function() {
-          $('input[name=headline]').bind('blur', function () {
-            if ($('input[name=slug]').val() === "") {
-              $('input[name=slug]').val(slugg($('input[name=headline]').val()))
+          var $headline = $('input[name=headline]')
+            , $slug = $('input[name=slug]')
+
+          $headline.bind('blur', function () {
+            if ($slug.val() === "") {
+              $slug.val(slugg($headline.val()))
             }
           })
         })
