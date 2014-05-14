@@ -55,12 +55,12 @@ block container
             input.form-control(type="hidden", name="_id", value=article._id)
 
             .btn-group
-              button.btn.btn-default(type="submit") Cancel
-
-            .btn-group.pull-right
               button.btn.btn-primary(type="submit") Save
               button.btn.btn-default(type="submit", name="draft", value="true") Draft
               button.btn.btn-warning(type="submit", name="publish", value="true") Publish
+
+            .btn-group.pull-right
+              button.btn.btn-default(type="submit") Cancel
 
     append script
       script(src="/js/lib/slugg.js")
