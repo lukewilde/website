@@ -6,6 +6,14 @@ block container
     block content
       h1.page-header Article control
 
+      if (errors)
+        div.panel.panel-default.panel-danger
+          div.panel-heading
+            h3.panel-title Validation Issues
+          div.panel-body
+            ul
+              for error in errors
+                li=error
 
       form(action="", method="post", role="form")
         div.panel.panel-default
