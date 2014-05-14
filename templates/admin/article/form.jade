@@ -62,3 +62,14 @@ block container
               button.btn.btn-default(type="submit", name="draft", value="true") Draft
               button.btn.btn-warning(type="submit", name="publish", value="true") Publish
 
+    append script
+      script(src="/js/lib/slugg.js")
+
+      script.
+        $(function() {
+          $('input[name=headline]').bind('blur', function () {
+            if ($('input[name=slug]').val() === "") {
+              $('input[name=slug]').val(slugg($('input[name=headline]').val()))
+            }
+          })
+        })
