@@ -21,26 +21,36 @@ block container
             h3.panel-title Basic Details
           div.panel-body
 
-            .form-group
-              label(for="headline") Headline
+            .form-group(class=errors && errors.headline ? "has-error" : "")
+              label.control-label(for="headline") Headline
               input.form-control(type="text", name="headline", value=article.headline)
+              if (errors && errors.headline)
+                span.help-block=errors.headline
 
-            .form-group
-              label(for="slug") Slug
+            .form-group(class=errors && errors.slug ? "has-error" : "")
+              label.control-label(for="slug") Slug
               input.form-control(type="text", name="slug", value=article.slug)
+              if (errors && errors.slug)
+                span.help-block=errors.slug
 
-            .form-group
-              label(for="subtitle") Subtitle
+            .form-group(class=errors && errors.subtitle ? "has-error" : "")
+              label.control-label(for="subtitle") Subtitle
               input.form-control(type="text", name="subtitle", value=article.subtitle)
+              if (errors && errors.subtitle)
+                span.help-block=errors.subtitle
 
-            .form-group
-              label(for="description") Description
+            .form-group(class=errors && errors.description ? "has-error" : "")
+              label.control-label(for="description") Description
               input.form-control(type="text", name="description", value=article.description)
+              if (errors && errors.description)
+                span.help-block=errors.description
 
-            .form-group
-              label(for="body") Body
+            .form-group(class=errors && errors.body ? "has-error" : "")
+              label.control-label(for="body") Body
               textarea.form-control(name="body", rows=10)=article.body
-              //- input.form-control
+              if (errors && errors.description)
+                span.help-block=errors.description
+
 
             input.form-control(type="hidden", name="_id", value=article._id)
 
