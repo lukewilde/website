@@ -19,10 +19,12 @@ function compile(str, path) {
   return stylus(str)
     .set('filename', path)
     .set('compress', true)
-    .define('url', stylus.url({
-      paths : [__dirname + '/public'],
-      limit : 10000
-    }))
+    .define('url', stylus.url(
+      { paths: [__dirname + '/public']
+      , limit: 10000
+      }
+    )
+  )
 }
 
 app.use(cookieParser())
