@@ -39,7 +39,7 @@ app.use(express.static(__dirname + '/public'))
 app.set('views', __dirname + '/templates')
 app.set('view engine', 'jade')
 app.use(stylus.middleware(
-  { src: __dirname + '/public/'
+  { src: __dirname + '/public/css/'
   , compile: compile
   }
 ))
