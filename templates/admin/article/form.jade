@@ -46,11 +46,12 @@ block container
                 span.help-block=errors.description
 
             .form-group(class=errors && errors.body ? "has-error" : "")
-              label.control-label(for="body") Body
               #editor.row
                 .col-sm-6.blog-main
-                  textarea.form-control(v-model="input", name="body", rows=10)=article.body
+                  label.control-label(for="body") Body
+                  textarea.form-control(v-model="input", name="body", rows=20)=article.body
                 .col-sm-6.blog-main
+                  label.control-label Preview
                   div(v-html="input | marked")
               if (errors && errors.description)
                 span.help-block=errors.description
