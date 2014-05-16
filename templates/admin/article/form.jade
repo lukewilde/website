@@ -53,9 +53,11 @@ block container
 
             .form-group(class=errors && errors.published ? "has-error" : "")
               label.control-label(for="published") Published Date
-              input.form-control(type="text", name="published", value=article.published)
+              input.form-control(type="text", name="published-pretty", value=article.published)
               if (errors && errors.published)
                 span.help-block=errors.published
+
+              input.form-control(type="hidden", name="published", value=article.published)
 
             input.form-control(type="hidden", name="_id", value=article._id)
 
@@ -73,7 +75,9 @@ append scripts
 
   script.
     $(function() {
-      var picker = new Pikaday({ field: $('input[name=published]')[0] })
+      var $publishedHidden = $('input[name=published]')
+        , $publishedPretty = $('input[name=published-pretty]')
+        , picker = new Pikaday({ field: $('input[name=published-pretty]')[0] } )
         , $headline = $('input[name=headline]')
         , $slug = $('input[name=slug]')
 
@@ -82,4 +86,9 @@ append scripts
           $slug.val(slugg($headline.val()))
         }
       })
+
+      $publishedPretty.bind('change', function(event) {
+        $publishedHidden.val(new Date($(event.target).val()).toISOString())
+      })
+
     })
