@@ -15,9 +15,10 @@ block content
         tr
           th Edit
           th Headline
-          th Subtitle
           th Slug
           th Description
+          th Published
+          th Created
           th Delete
       tbody
         for article in articles
@@ -25,9 +26,10 @@ block content
             td
               a.btn.btn-primary(href="/admin/article/edit/" + article.slug) Edit
             td=article.headline
-            td=article.subtitle
             td=article.slug
             td=article.description
+            td=article.published
+            td=article.created
             td
               a.btn.btn-danger(href="/admin/article/delete/" + article._id) Delete
 
