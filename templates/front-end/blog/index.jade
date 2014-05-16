@@ -1,0 +1,14 @@
+extends ../layout
+block content
+
+  h2.blog-post-title My Very Own Blog
+
+  for article in articles
+
+    div.blog-post
+      h2.blog-post-title
+        a(href="/blog/" + article.slug)=article.headline
+      p.blog-post-meta=article.published
+      #{article.body}
+
+append script
