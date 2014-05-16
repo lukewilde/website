@@ -25,7 +25,8 @@ block content
           tr
             td
               a.btn.btn-primary(href="/admin/article/edit/" + article.slug) Edit
-            td=article.headline
+            td
+              a(href="/blog/" + article.slug)=article.headline
             td=article.slug
             td=article.description
             td=article.published
