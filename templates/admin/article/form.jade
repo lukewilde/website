@@ -47,7 +47,11 @@ block container
 
             .form-group(class=errors && errors.body ? "has-error" : "")
               label.control-label(for="body") Body
-              textarea.form-control(name="body", rows=10)=article.body
+              #editor.row
+                .col-sm-6.blog-main
+                  textarea.form-control(v-model="input", name="body", rows=10)=article.body
+                .col-sm-6.blog-main
+                  div(v-html="input | marked")
               if (errors && errors.description)
                 span.help-block=errors.description
 
@@ -72,6 +76,8 @@ block container
 append scripts
   script(src="/js/lib/slugg.js")
   script(src="/js/lib/pikaday.js")
+  script(src="/js/lib/vue.min.js")
+  script(src="/js/lib/marked.min.js")
 
   script.
     $(function() {
@@ -91,4 +97,14 @@ append scripts
         $publishedHidden.val(new Date($(event.target).val()).toISOString())
       })
 
+      new Vue(
+        { el: '#editor'
+        , data:
+          { input: '# hello'
+          }
+        , filters:
+          { marked: marked
+          }
+        }
+      )
     })
