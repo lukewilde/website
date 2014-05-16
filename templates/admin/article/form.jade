@@ -21,29 +21,33 @@ block container
             h3.panel-title Basic Details
           div.panel-body
 
-            .form-group(class=errors && errors.headline ? "has-error" : "")
-              label.control-label(for="headline") Headline
-              input.form-control(type="text", name="headline", value=article.headline)
-              if (errors && errors.headline)
-                span.help-block=errors.headline
+            .row
+              .form-group.col-sm-4(class=errors && errors.headline ? "has-error" : "")
+                label.control-label(for="headline") Headline
+                input.form-control(type="text", name="headline", value=article.headline)
+                if (errors && errors.headline)
+                  span.help-block=errors.headline
 
-            .form-group(class=errors && errors.slug ? "has-error" : "")
-              label.control-label(for="slug") Slug
-              input.form-control(type="text", name="slug", value=article.slug)
-              if (errors && errors.slug)
-                span.help-block=errors.slug
+            .row
+              .form-group.col-sm-4(class=errors && errors.slug ? "has-error" : "")
+                label.control-label(for="slug") Slug
+                input.form-control(type="text", name="slug", value=article.slug)
+                if (errors && errors.slug)
+                  span.help-block=errors.slug
 
-            .form-group(class=errors && errors.subtitle ? "has-error" : "")
-              label.control-label(for="subtitle") Subtitle
-              input.form-control(type="text", name="subtitle", value=article.subtitle)
-              if (errors && errors.subtitle)
-                span.help-block=errors.subtitle
+            .row
+              .form-group.col-sm-4(class=errors && errors.subtitle ? "has-error" : "")
+                label.control-label(for="subtitle") Subtitle
+                input.form-control(type="text", name="subtitle", value=article.subtitle)
+                if (errors && errors.subtitle)
+                  span.help-block=errors.subtitle
 
-            .form-group(class=errors && errors.description ? "has-error" : "")
-              label.control-label(for="description") Description
-              input.form-control(type="text", name="description", value=article.description)
-              if (errors && errors.description)
-                span.help-block=errors.description
+            .row
+              .form-group.col-sm-4(class=errors && errors.description ? "has-error" : "")
+                label.control-label(for="description") Description
+                textarea.form-control(v-model="input", name="description", rows=5)=article.description
+                if (errors && errors.description)
+                  span.help-block=errors.description
 
             .form-group(class=errors && errors.body ? "has-error" : "")
               #editor.row
@@ -53,14 +57,15 @@ block container
                 .col-sm-6.blog-main
                   label.control-label Preview
                   div(v-html="input | marked")
-              if (errors && errors.description)
-                span.help-block=errors.description
+              if (errors && errors.body)
+                span.help-block=errors.body
 
-            .form-group(class=errors && errors.published ? "has-error" : "")
-              label.control-label(for="published") Published Date
-              input.form-control(type="text", name="published-pretty", value=article.published)
-              if (errors && errors.published)
-                span.help-block=errors.published
+            .row
+              .form-group.col-sm-4(class=errors && errors.published ? "has-error" : "")
+                label.control-label(for="published") Published Date
+                input.form-control(type="text", name="published-pretty", value=article.published)
+                if (errors && errors.published)
+                  span.help-block=errors.published
 
               input.form-control(type="hidden", name="published", value=article.published)
 
