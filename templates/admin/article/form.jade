@@ -64,7 +64,7 @@ block container
                   if (errors && errors.body)
                     span.help-block=errors.body
                 .col-sm-6.blog-main
-                  div(v-html="input | marked")
+                  .preview(v-html="input | marked")
 
             .form-group(class=errors && errors.published ? "has-error" : "")
               .col-sm-1
@@ -118,9 +118,6 @@ append scripts
 
       new Vue(
         { el: '#editor'
-        , data:
-          { input: '# hello'
-          }
         , filters:
           { marked: marked
           }
