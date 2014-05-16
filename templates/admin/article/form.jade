@@ -51,6 +51,11 @@ block container
               if (errors && errors.description)
                 span.help-block=errors.description
 
+            .form-group(class=errors && errors.published ? "has-error" : "")
+              label.control-label(for="published") Published Date
+              input.form-control(type="text", name="published", value=article.published)
+              if (errors && errors.published)
+                span.help-block=errors.published
 
             input.form-control(type="hidden", name="_id", value=article._id)
 
@@ -62,17 +67,19 @@ block container
             .btn-group.pull-right
               button.btn.btn-default(type="submit") Cancel
 
-    append script
-      script(src="/js/lib/slugg.js")
+append scripts
+  script(src="/js/lib/slugg.js")
+  script(src="/js/lib/pikaday.js")
 
-      script.
-        $(function() {
-          var $headline = $('input[name=headline]')
-            , $slug = $('input[name=slug]')
+  script.
+    $(function() {
+      var picker = new Pikaday({ field: $('input[name=published]')[0] })
+        , $headline = $('input[name=headline]')
+        , $slug = $('input[name=slug]')
 
-          $headline.bind('blur', function () {
-            if ($slug.val() === "") {
-              $slug.val(slugg($headline.val()))
-            }
-          })
-        })
+      $headline.bind('blur', function () {
+        if ($slug.val() === "") {
+          $slug.val(slugg($headline.val()))
+        }
+      })
+    })
