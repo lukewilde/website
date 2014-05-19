@@ -76,10 +76,11 @@ block container
 
             .form-group
               .col-sm-1
-                .checkbox
-                  label Is Visible
               .col-sm-5
-                  input(type="checkbox")
+                .checkbox
+                  label
+                    input(type="checkbox")
+                    | Is Visible
 
             input.form-control(type="hidden", name="published", value=article.published)
             input.form-control(type="hidden", name="_id", value=article._id)
