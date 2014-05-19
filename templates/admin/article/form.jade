@@ -79,7 +79,7 @@ block container
               .col-sm-5
                 .checkbox
                   label
-                    input(type="checkbox")
+                    input(type="checkbox", name="isVisible", checked=article.isVisible)
                     | Is Visible
 
             input.form-control(type="hidden", name="published", value=article.published)
