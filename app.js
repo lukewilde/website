@@ -7,6 +7,7 @@ var express = require('express')
   , session = require('express-session')
   , morgan = require('morgan')
   , compress = require('compression')
+  , properties = require('./properties')
   , serviceLocator = require('service-locator')()
   , MongoClient = require('mongodb').MongoClient
   , makeRoutes = require('./lib/routes')
@@ -44,6 +45,7 @@ app.use(stylus.middleware(
   }
 ))
 
+app.locals.properties = properties
 
 MongoClient.connect('mongodb://127.0.0.1:27017/lukewilde', function(err, db) {
   if(err) throw err
