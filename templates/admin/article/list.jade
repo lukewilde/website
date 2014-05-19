@@ -17,6 +17,7 @@ block content
           th Headline
           th Slug
           th Description
+          th Live
           th Published
           th Created
           th Delete
@@ -30,6 +31,11 @@ block content
             td=article.slug
             td=article.description
             td=article.published
+            td
+              if article.isLive
+                span.label.label-success Yes
+              else
+                span.label.label-danger No
             td=article.created
             td
               a.btn.btn-danger(href="/admin/article/delete/" + article._id) Delete
