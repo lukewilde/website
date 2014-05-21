@@ -66,6 +66,14 @@ block container
                 .col-sm-6.blog-main
                   .preview(v-html="input | marked")
 
+            .form-group(class=errors && errors.scripts ? "has-error" : "")
+              .col-sm-1
+                label.control-label(for="scripts") Scripts
+              .col-sm-5.blog-main
+                textarea.form-control(v-model="input", name="scripts", rows=5)=article.scripts
+                if (errors && errors.scripts)
+                  span.help-block=errors.scripts
+
             .form-group(class=errors && errors.published ? "has-error" : "")
               .col-sm-1
                 label.control-label(for="published") Published Date
