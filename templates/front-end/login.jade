@@ -1,18 +1,24 @@
 extends layout
-block content
 
-  div.panel.panel-default(class=failedAttempt ? "panel-danger" : "")
-    div.panel-heading
-      h3.panel-title Login
-    div.panel-body
+block content-container
 
-      form(action="/login", method="post", role="form")
-        .form-group
-          label(for="username") Username
-          input.form-control(type="text", name="username", placeholder="Username")
+  .col-sm-2.blog-main
+  .col-sm-8.blog-main
 
-        .form-group
-          label(for="password") Password
-          input.form-control(type="password", name="password", placeholder="Password")
+    block content
 
-        button.btn.btn-default(type="submit") Login
+      div.panel.panel-default(class=failedAttempt ? "panel-danger" : "")
+        div.panel-heading
+          h3.panel-title Login
+        div.panel-body
+
+          form(action="/login", method="post", role="form")
+            .form-group
+              label(for="username") Username
+              input.form-control(type="text", name="username", placeholder="Username")
+
+            .form-group
+              label(for="password") Password
+              input.form-control(type="password", name="password", placeholder="Password")
+
+            button.btn.btn-default(type="submit") Login

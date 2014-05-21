@@ -31,25 +31,9 @@ html
               a(href='/labs') Labs
 
       .row.clear
-        .col-sm-8.blog-main
-          block content
-
-        .col-sm-3.col-sm-offset-1.blog-sidebar
-          block side-bar
-            .sidebar-module.sidebar-module-inset
-              h4 Widget
-              p Malesuada a lacinia sit amet, dapibus in odio. Quisque blandit ligula a mauris auctor, vitae elementum diam rhoncus. Suspendisse venenatis nisl molestie, fermentum sem me.
-
-            .sidebar-module
-              h4 List of stuff
-              ol
-                li January 2014
-                li December 2013
-                li November 2013
-                li October 2013
-                li September 2013
-                li August 2013
-                li July 2013
+        block content-container
+          .col-sm-12.blog-main
+            block content
 
     block footer
 
