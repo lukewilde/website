@@ -105,8 +105,8 @@ block container
                         button.btn.btn-default(type="submit", name="publish", value="true") Publish
 
 
-            .col-md-6
-              iframe.span6(src="/blog/" + article.slug + '?preview')
+            .col-md-6.preview
+              iframe.preview(src="/blog/" + article.slug + '?preview')
 
 
 
@@ -123,6 +123,9 @@ append scripts
         , picker = new Pikaday({ field: $('input[name=published-pretty]')[0] } )
         , $headline = $('input[name=headline]')
         , $slug = $('input[name=slug]')
+        , $body = $('textarea[name=body]')
+        , $preview = $('iframe.preview')
+        , offset = 0
 
       $headline.bind('blur', function () {
         if ($slug.val() === "") {
@@ -134,22 +137,15 @@ append scripts
         $publishedHidden.val(new Date($(event.target).val()).toISOString())
       })
 
-      new Vue(
-        { el: '#editor'
-        , filters:
-          { marked: marked
-          }
-        }
-      )
+      $body.bind('change', function() {
 
-      var $divs = $('textarea[name=body], .preview')
+        offset = $preview.scrollTop()
 
-      $divs.on('scroll', function(event) {
+        $preview.load(function () {
+          debugger
+          $preview.scrollTop(offset)
+        })
 
-          var $other = $divs.not(this).off('scroll')
-            , other = $other.get(0)
-            , percentage = this.scrollTop / (this.scrollHeight - this.offsetHeight)
-
-          other.scrollTop = percentage * (other.scrollHeight - other.offsetHeight)
+        $preview.attr('src', function (i, val) { return val })
       })
     })
