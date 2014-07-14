@@ -1,65 +1,89 @@
-var margin =
-    { top: 20
-    , right: 20
-    , bottom: 30
-    , left: 50
-    }
-  , width = 960 - margin.left - margin.right
-  , height = 500 - margin.top - margin.bottom
-  // , x = window.d3.scale.linear().range([0, width])
-  // , y = window.d3.scale.linear().range([height, 0])
-  , x = window.d3.scale.linear().domain([1, 200]).range([0, width])
-  , y = window.d3.scale.linear().domain([0, 1]).range([0 + margin.top, height])
-  , xAxis = window.d3.svg.axis().scale(x).orient('bottom')
-  , yAxis = window.d3.svg.axis().scale(y).orient('left')
-
-  console.log(width)
-
-var line1 = window.d3.svg.line()
-    .x(function(d, i) { return x(i) })
-    .y(function(d) { return y(d.a) })
-
-var line2 = window.d3.svg.line()
-    .x(function(d, i) { return x(i) })
-    .y(function(d) { return y(d.b) })
-
-var svg = window.d3.selectAll('.graph-01').append('svg')
-    .attr('width', width + margin.left + margin.right)
-    .attr('height', height + margin.top + margin.bottom)
-    .append('g')
-    .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
-
 window.d3.csv('/js/blog/logistic-map/data.csv', function(error, data) {
   data.forEach(function(d) {
     d.a = +d.a
     d.b = +d.b
   })
 
-  x.domain(window.d3.extent(data, function(d) { return d.a }))
-  y.domain(window.d3.extent(data, function(d) { return d.b }))
+  var w = 800
+    , h = 500
+    , margin = 20
+    , y = window.d3.scale.linear().domain([0, 1]).range([0 + margin, h - margin])
+    , x = window.d3.scale.linear().domain([0, 50]).range([0 + margin, w - margin])
 
-  svg.append('g')
-      .attr('class', 'x axis')
-      .attr('transform', 'translate(0,' + height + ')')
-      .call(xAxis)
+  var vis = window.d3.select('.graph-01')
+        .append('svg:svg')
+        .attr('width', w)
+        .attr('height', h)
 
-  svg.append('g')
-      .attr('class', 'y axis')
-      .call(yAxis)
-    .append('text')
-      .attr('transform', 'rotate(-90)')
-      .attr('y', 6)
-      .attr('dy', '.71em')
-      .style('text-anchor', 'end')
-      .text('Population Size (X)')
+  var g = vis.append('svg:g')
+        .attr('transform', 'translate(0, '+ h + ')')
 
-  svg.append('path')
+  var line1 = window.d3.svg.line()
+        .x(function(d,i) { return x(i) })
+        .y(function(d) { return -1 * y(d.a) })
+
+  var line2 = window.d3.svg.line()
+        .x(function(d,i) { return x(i) })
+        .y(function(d) { return -1 * y(d.b) })
+
+  g.append('svg:path')
       .datum(data)
       .attr('class', 'line')
       .attr('d', line1)
+      .style('stroke', 'blue')
 
-  svg.append('path')
+  g.append('svg:path')
       .datum(data)
       .attr('class', 'line')
       .attr('d', line2)
+      .style('stroke', 'green')
+
+  g.append('svg:line')
+      .attr('x1', x(0))
+      .attr('y1', -1 * y(0))
+      .attr('x2', x(w))
+      .attr('y2', -1 * y(0))
+
+  g.append('svg:line')
+      .attr('x1', x(0))
+      .attr('y1', -1 * y(0))
+      .attr('x2', x(0))
+      .attr('y2', -1 * y(1))
+
+  g.selectAll('.xLabel')
+      .data(x.ticks(5))
+      .enter().append('svg:text')
+      .attr('class', 'xLabel')
+      .text(String)
+      .attr('x', function(d) { return x(d) })
+      .attr('y', 0)
+      .attr('text-anchor', 'middle')
+
+  g.selectAll('.yLabel')
+      .data(y.ticks(10))
+      .enter().append('svg:text')
+      .attr('class', 'yLabel')
+      .text(String)
+      .attr('x', 0)
+      .attr('y', function(d) { return -1 * y(d) })
+      .attr('text-anchor', 'right')
+      .attr('dy', 4)
+
+  g.selectAll('.xTicks')
+      .data(x.ticks(5))
+      .enter().append('svg:line')
+      .attr('class', 'xTicks')
+      .attr('x1', function(d) { return x(d) })
+      .attr('y1', -1 * y(0))
+      .attr('x2', function(d) { return x(d) })
+      .attr('y2', -1 * y(-0.3))
+
+  g.selectAll('.yTicks')
+      .data(y.ticks(4))
+      .enter().append('svg:line')
+      .attr('class', 'yTicks')
+      .attr('y1', function(d) { return -1 * y(d) })
+      .attr('x1', x(-0.3))
+      .attr('y2', function(d) { return -1 * y(d) })
+      .attr('x2', x(0))
 })
