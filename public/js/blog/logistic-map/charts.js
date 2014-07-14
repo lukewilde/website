@@ -4,16 +4,30 @@ window.d3.csv('/js/blog/logistic-map/data.csv', function(error, data) {
     d.b = +d.b
   })
 
-  var w = 800
-    , h = 500
-    , margin = 20
-    , y = window.d3.scale.linear().domain([0, 1]).range([0 + margin, h - margin])
-    , x = window.d3.scale.linear().domain([0, 50]).range([0 + margin, w - margin])
+  var w = 600
+    , h = 300
+    , margin = { top: 25, right: 25, bottom: 25, left: 25}
+    , y = window.d3.scale.linear().domain([0, 1]).range([0 + margin.top, h - margin.bottom])
+    , x = window.d3.scale.linear().domain([0, 50]).range([0 + margin.left + margin.right, w - margin.left])
 
   var vis = window.d3.select('.graph-01')
         .append('svg:svg')
         .attr('width', w)
         .attr('height', h)
+
+
+vis.selectAll('line.horizontalGrid').data(y.ticks(5)).enter()
+    .append('line').attr(
+      { 'class':'horizontalGrid'
+      , 'x1' : margin.right
+      , 'x2' : w
+      , 'y1' : function(d){ return y(d)}
+      , 'y2' : function(d){ return y(d)}
+      , 'fill' : 'none'
+      , 'shape-rendering' : 'crispEdges'
+      , 'stroke' : '#EEE'
+      , 'stroke-width' : '1px'
+      })
 
   var g = vis.append('svg:g')
         .attr('transform', 'translate(0, '+ h + ')')
@@ -30,13 +44,16 @@ window.d3.csv('/js/blog/logistic-map/data.csv', function(error, data) {
       .datum(data)
       .attr('class', 'line')
       .attr('d', line1)
-      .style('stroke', 'blue')
+      .style('stroke', 'OLIVEDRAB')
+      .style('stroke-width', 1)
+      .style('stroke-dasharray', '10,5')
 
   g.append('svg:path')
       .datum(data)
       .attr('class', 'line')
       .attr('d', line2)
-      .style('stroke', 'green')
+      .style('stroke', 'DARKOLIVEGREEN')
+      .style('stroke-width', 2)
 
   g.append('svg:line')
       .attr('x1', x(0))
@@ -50,9 +67,17 @@ window.d3.csv('/js/blog/logistic-map/data.csv', function(error, data) {
       .attr('x2', x(0))
       .attr('y2', -1 * y(1))
 
+  vis.append('text')
+    .attr('class', 'x label')
+    .attr('text-anchor', 'end')
+    .attr('x', w)
+    .attr('y', h - 20)
+    .text('Number of iterations')
+
   g.selectAll('.xLabel')
       .data(x.ticks(5))
       .enter().append('svg:text')
+      .style('font-size','12px')
       .attr('class', 'xLabel')
       .text(String)
       .attr('x', function(d) { return x(d) })
@@ -62,6 +87,7 @@ window.d3.csv('/js/blog/logistic-map/data.csv', function(error, data) {
   g.selectAll('.yLabel')
       .data(y.ticks(10))
       .enter().append('svg:text')
+      .style('font-size','12px')
       .attr('class', 'yLabel')
       .text(String)
       .attr('x', 0)
@@ -86,4 +112,5 @@ window.d3.csv('/js/blog/logistic-map/data.csv', function(error, data) {
       .attr('x1', x(-0.3))
       .attr('y2', function(d) { return -1 * y(d) })
       .attr('x2', x(0))
+
 })
