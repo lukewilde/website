@@ -30,7 +30,9 @@
     "validity": "0.0.3",
     "validity-unique-property": "^0.2.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "json2csv": "^2.2.1"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -6,15 +6,22 @@ var margin =
     }
   , width = 960 - margin.left - margin.right
   , height = 500 - margin.top - margin.bottom
-  , parseDate = window.d3.time.format('%d-%b-%y').parse
-  , x = window.d3.time.scale().range([0, width])
-  , y = window.d3.scale.linear().range([height, 0])
+  // , x = window.d3.scale.linear().range([0, width])
+  // , y = window.d3.scale.linear().range([height, 0])
+  , x = window.d3.scale.linear().domain([1, 200]).range([0, width])
+  , y = window.d3.scale.linear().domain([0, 1]).range([0 + margin.top, height])
   , xAxis = window.d3.svg.axis().scale(x).orient('bottom')
   , yAxis = window.d3.svg.axis().scale(y).orient('left')
 
-var line = window.d3.svg.line()
-    .x(function(d) { return x(d.date) })
-    .y(function(d) { return y(d.close) })
+  console.log(width)
+
+var line1 = window.d3.svg.line()
+    .x(function(d, i) { return x(i) })
+    .y(function(d) { return y(d.a) })
+
+var line2 = window.d3.svg.line()
+    .x(function(d, i) { return x(i) })
+    .y(function(d) { return y(d.b) })
 
 var svg = window.d3.selectAll('.graph-01').append('svg')
     .attr('width', width + margin.left + margin.right)
@@ -22,14 +29,14 @@ var svg = window.d3.selectAll('.graph-01').append('svg')
     .append('g')
     .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
 
-window.d3.tsv('/js/blog/data.tsv', function(error, data) {
+window.d3.csv('/js/blog/logistic-map/data.csv', function(error, data) {
   data.forEach(function(d) {
-    d.date = parseDate(d.date)
-    d.close = +d.close
+    d.a = +d.a
+    d.b = +d.b
   })
 
-  x.domain(window.d3.extent(data, function(d) { return d.date }))
-  y.domain(window.d3.extent(data, function(d) { return d.close }))
+  x.domain(window.d3.extent(data, function(d) { return d.a }))
+  y.domain(window.d3.extent(data, function(d) { return d.b }))
 
   svg.append('g')
       .attr('class', 'x axis')
@@ -44,10 +51,15 @@ window.d3.tsv('/js/blog/data.tsv', function(error, data) {
       .attr('y', 6)
       .attr('dy', '.71em')
       .style('text-anchor', 'end')
-      .text('Price ($)')
+      .text('Population Size (X)')
 
   svg.append('path')
       .datum(data)
       .attr('class', 'line')
-      .attr('d', line)
+      .attr('d', line1)
+
+  svg.append('path')
+      .datum(data)
+      .attr('class', 'line')
+      .attr('d', line2)
 })
