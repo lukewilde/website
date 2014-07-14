@@ -117,7 +117,8 @@ function drawBuildings(canvas, buildings) {
     , canvasHeight = canvas.height
 
   // Draw background.
-  // context.fillRect(0, 0, canvasWidth, canvasHeight)
+  context.fillStyle = 'white'
+  context.fillRect(0, 0, canvasWidth, canvasHeight)
 
   // Draw the bleeders.
   for (var i = 0; i < buildings.length; i++) {
