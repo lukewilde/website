@@ -5,10 +5,10 @@ window.d3.csv('/js/blog/logistic-map/data.csv', function(error, data) {
   })
 
   var w = 600
-    , h = 300
-    , margin = { top: 25, right: 25, bottom: 25, left: 25}
+    , h = 270
+    , margin = { top: 50, right: 25, bottom: 25, left: 45}
     , y = window.d3.scale.linear().domain([0, 1]).range([0 + margin.top, h - margin.bottom])
-    , x = window.d3.scale.linear().domain([0, 50]).range([0 + margin.left + margin.right, w - margin.left])
+    , x = window.d3.scale.linear().domain([0, 50]).range([0 + margin.left, w - margin.left])
 
   var vis = window.d3.select('.graph-01')
         .append('svg:svg')
@@ -19,7 +19,7 @@ window.d3.csv('/js/blog/logistic-map/data.csv', function(error, data) {
 vis.selectAll('line.horizontalGrid').data(y.ticks(5)).enter()
     .append('line').attr(
       { 'class':'horizontalGrid'
-      , 'x1' : margin.right
+      , 'x1' : margin.left
       , 'x2' : w
       , 'y1' : function(d){ return y(d)}
       , 'y2' : function(d){ return y(d)}
@@ -28,6 +28,7 @@ vis.selectAll('line.horizontalGrid').data(y.ticks(5)).enter()
       , 'stroke' : '#EEE'
       , 'stroke-width' : '1px'
       })
+    .attr('transform', 'translate(0, '+ - margin.bottom + ')')
 
   var g = vis.append('svg:g')
         .attr('transform', 'translate(0, '+ h + ')')
@@ -103,10 +104,17 @@ vis.selectAll('line.horizontalGrid').data(y.ticks(5)).enter()
 
   vis.append('text')
     .attr('class', 'x label')
-    .attr('text-anchor', 'end')
-    .attr('x', w)
-    .attr('y', h - 20)
+    .attr('text-anchor', 'middle')
+    .attr('x', w / 2)
+    .attr('y', h - 10)
     .text('Number of iterations')
+
+  vis.append('text')
+    .attr('class', 'y label')
+    .attr('text-anchor', 'middle')
+    .attr('x', 10)
+    .attr('y', h / 2 - 8)
+    .text('X')
 
   g.selectAll('.xLabel')
       .data(x.ticks(5))
@@ -115,7 +123,7 @@ vis.selectAll('line.horizontalGrid').data(y.ticks(5)).enter()
       .attr('class', 'xLabel')
       .text(String)
       .attr('x', function(d) { return x(d) })
-      .attr('y', 0)
+      .attr('y', -30)
       .attr('text-anchor', 'middle')
 
   g.selectAll('.yLabel')
@@ -124,7 +132,7 @@ vis.selectAll('line.horizontalGrid').data(y.ticks(5)).enter()
       .style('font-size','12px')
       .attr('class', 'yLabel')
       .text(String)
-      .attr('x', 0)
+      .attr('x', 20)
       .attr('y', function(d) { return -1 * y(d) })
       .attr('text-anchor', 'right')
       .attr('dy', 4)
