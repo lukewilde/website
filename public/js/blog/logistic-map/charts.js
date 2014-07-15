@@ -6,9 +6,9 @@ window.d3.csv('/js/blog/logistic-map/data.csv', function(error, data) {
 
   var w = 600
     , h = 270
-    , margin = { top: 50, right: 25, bottom: 25, left: 45}
+    , margin = { top: 50, right: 10, bottom: 25, left: 55}
     , y = window.d3.scale.linear().domain([0, 1]).range([0 + margin.top, h - margin.bottom])
-    , x = window.d3.scale.linear().domain([0, 50]).range([0 + margin.left, w - margin.left])
+    , x = window.d3.scale.linear().domain([0, 50]).range([0 + margin.left, w - margin.right])
 
   var vis = window.d3.select('.graph-01')
         .append('svg:svg')
@@ -19,7 +19,7 @@ window.d3.csv('/js/blog/logistic-map/data.csv', function(error, data) {
 vis.selectAll('line.horizontalGrid').data(y.ticks(5)).enter()
     .append('line').attr(
       { 'class':'horizontalGrid'
-      , 'x1' : margin.left
+      , 'x1' : margin.left - 10
       , 'x2' : w
       , 'y1' : function(d){ return y(d)}
       , 'y2' : function(d){ return y(d)}
