@@ -86,7 +86,7 @@ vis.selectAll('line.horizontalGrid').data(y.ticks(5)).enter()
   vis.append('text')
       .attr('class', 'x label')
       .attr('text-anchor', 'end')
-      .attr('x', 570)
+      .attr('x', 580)
       .attr('y', 14)
       .text('x = 0.10000001')
 
