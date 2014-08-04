@@ -92,6 +92,18 @@
         }
       }
     },
+    "crud-service": {
+      "version": "0.0.5",
+      "from": "crud-service@",
+      "resolved": "http://registry.npmjs.org/crud-service/-/crud-service-0.0.5.tgz",
+      "dependencies": {
+        "piton-pipe": {
+          "version": "0.0.4",
+          "from": "piton-pipe@*",
+          "resolved": "http://registry.npmjs.org/piton-pipe/-/piton-pipe-0.0.4.tgz"
+        }
+      }
+    },
     "express": {
       "version": "4.2.0",
       "from": "express@^4.2.0",
@@ -252,9 +264,14 @@
         }
       }
     },
+    "highlight.js": {
+      "version": "8.0.0",
+      "from": "highlight.js@",
+      "resolved": "http://registry.npmjs.org/highlight.js/-/highlight.js-8.0.0.tgz"
+    },
     "jade": {
       "version": "1.3.1",
-      "from": "jade@^1.3.1",
+      "from": "jade@1.3.1",
       "resolved": "http://registry.npmjs.org/jade/-/jade-1.3.1.tgz",
       "dependencies": {
         "commander": {
@@ -350,9 +367,9 @@
               "resolved": "http://registry.npmjs.org/readdirp/-/readdirp-0.2.5.tgz",
               "dependencies": {
                 "minimatch": {
-                  "version": "0.2.14",
+                  "version": "0.3.0",
                   "from": "minimatch@>=0.2.4",
-                  "resolved": "http://registry.npmjs.org/minimatch/-/minimatch-0.2.14.tgz",
+                  "resolved": "http://registry.npmjs.org/minimatch/-/minimatch-0.3.0.tgz",
                   "dependencies": {
                     "lru-cache": {
                       "version": "2.5.0",
@@ -387,7 +404,7 @@
                 },
                 "source-map": {
                   "version": "0.1.33",
-                  "from": "source-map@~0.1.33",
+                  "from": "source-map@~0.1.7",
                   "resolved": "http://registry.npmjs.org/source-map/-/source-map-0.1.33.tgz",
                   "dependencies": {
                     "amdefine": {
@@ -435,7 +452,7 @@
                 },
                 "source-map": {
                   "version": "0.1.33",
-                  "from": "source-map@~0.1.33",
+                  "from": "source-map@~0.1.7",
                   "resolved": "http://registry.npmjs.org/source-map/-/source-map-0.1.33.tgz",
                   "dependencies": {
                     "amdefine": {
@@ -472,6 +489,16 @@
       "version": "2.4.1",
       "from": "lodash@^2.4.1",
       "resolved": "http://registry.npmjs.org/lodash/-/lodash-2.4.1.tgz"
+    },
+    "marked": {
+      "version": "0.3.2",
+      "from": "marked@",
+      "resolved": "http://registry.npmjs.org/marked/-/marked-0.3.2.tgz"
+    },
+    "moment": {
+      "version": "2.6.0",
+      "from": "moment@",
+      "resolved": "http://registry.npmjs.org/moment/-/moment-2.6.0.tgz"
     },
     "mongodb": {
       "version": "1.4.3",
@@ -538,6 +565,55 @@
         }
       }
     },
+    "rss": {
+      "version": "0.3.2",
+      "from": "rss@",
+      "resolved": "http://registry.npmjs.org/rss/-/rss-0.3.2.tgz",
+      "dependencies": {
+        "xml": {
+          "version": "0.0.12",
+          "from": "xml@~0.0.12",
+          "resolved": "http://registry.npmjs.org/xml/-/xml-0.0.12.tgz"
+        },
+        "mime": {
+          "version": "1.2.11",
+          "from": "mime@~1.2.11",
+          "resolved": "http://registry.npmjs.org/mime/-/mime-1.2.11.tgz"
+        }
+      }
+    },
+    "save": {
+      "version": "0.0.20",
+      "from": "save@",
+      "resolved": "http://registry.npmjs.org/save/-/save-0.0.20.tgz"
+    },
+    "save-mongodb": {
+      "version": "0.0.11",
+      "from": "save-mongodb@",
+      "resolved": "http://registry.npmjs.org/save-mongodb/-/save-mongodb-0.0.11.tgz"
+    },
+    "schemata": {
+      "version": "2.0.1",
+      "from": "schemata@",
+      "resolved": "http://registry.npmjs.org/schemata/-/schemata-2.0.1.tgz",
+      "dependencies": {
+        "async": {
+          "version": "0.2.10",
+          "from": "async@~0.2",
+          "resolved": "http://registry.npmjs.org/async/-/async-0.2.10.tgz"
+        },
+        "validity": {
+          "version": "0.0.3",
+          "from": "validity@~0.0",
+          "resolved": "http://registry.npmjs.org/validity/-/validity-0.0.3.tgz"
+        },
+        "piton-string-utils": {
+          "version": "0.3.0",
+          "from": "piton-string-utils@~0.3",
+          "resolved": "http://registry.npmjs.org/piton-string-utils/-/piton-string-utils-0.3.0.tgz"
+        }
+      }
+    },
     "service-locator": {
       "version": "1.0.0",
       "from": "service-locator@",
@@ -598,6 +674,16 @@
           }
         }
       }
+    },
+    "validity": {
+      "version": "0.0.3",
+      "from": "validity@",
+      "resolved": "http://registry.npmjs.org/validity/-/validity-0.0.3.tgz"
+    },
+    "validity-unique-property": {
+      "version": "0.2.0",
+      "from": "validity-unique-property@",
+      "resolved": "http://registry.npmjs.org/validity-unique-property/-/validity-unique-property-0.2.0.tgz"
     }
   }
 }
