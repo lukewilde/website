@@ -15,20 +15,21 @@ html
 
     .container
       .row.clear
-        .col-sm-5
+        .col-sm-2
+          img(src="/images/noodles.png")
+        .col-sm-4
           h1.blog-title
             a(href='/') Luke Wilde
 
-          p.lead.blog-description Freelance web and games programmer
 
         .col-sm-6
-          ul.nav.navbar-nav.ding(role="navigation")
-            li
-              a(href='/') Home
+          ul.nav.navbar-nav(role="navigation")
             li
               a(href='/blog') Blog
             li
               a(href='/portfolio') Portfolio
+
+      h2.lead.blog-description Freelance web and games programmer
 
       .row.clear
         block content-container
