@@ -1,5 +1,8 @@
 extends layout
 
+block lead
+  h2.lead.blog-description Login
+
 block content-container
 
   .col-sm-4.blog-main
@@ -7,9 +10,7 @@ block content-container
 
     block content
 
-      div.panel.panel-default(class=failedAttempt ? "panel-danger" : "")
-        div.panel-heading
-          h3.panel-title Login
+      div.panel.panel-default(class=failedAttempt ? "panel-danger" : "").login
         div.panel-body
 
           form(action="/login", method="post", role="form")
