@@ -36,30 +36,7 @@ html
           .col-sm-12.blog-main
             block content
 
-    block footer
-
-      .blog-footer
-
-        span &copy;
-          strong Luke Wilde.
-          |  All rights reserved
-
-        ul.contact
-          li
-            a.twitter(href="https://twitter.com/lukewilde")
-              strong Twitter
-          li
-            a.linkedin(href="http://uk.linkedin.com/in/lwilde1")
-              strong LinkedIn
-          li
-            a.email(mailto="luke.wilde@gmail.com")
-              strong Email
-          li
-            a.cv(href=properties.siteUrl + "/cv")
-              strong CV
-          li
-            a.rss(href=properties.siteUrl + "/rss")
-              strong RSS
+      include footer
 
   block scripts
     script(src="/js/lib/jquery-2.1.1.min.js")
