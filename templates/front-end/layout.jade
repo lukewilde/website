@@ -15,50 +15,29 @@ html
 
     .container
       .row.clear
-        .col-sm-5
+        .col-sm-2
+          img(src="/images/noodles.png")
+        .col-sm-4.header-title
           h1.blog-title
             a(href='/') Luke Wilde
 
-          p.lead.blog-description Freelance web and games programmer
 
         .col-sm-6
-          ul.nav.navbar-nav.ding(role="navigation")
+          ul.nav.navbar-nav(role="navigation")
             li
               a(href='/blog') Blog
             li
               a(href='/portfolio') Portfolio
-            li
-              a(href='/labs') Labs
+
+      block lead
+        h2.lead.blog-description Freelance web and games programmer
 
       .row.clear
         block content-container
           .col-sm-12.blog-main
             block content
 
-    block footer
-
-      .blog-footer
-
-        span &copy;
-          strong Luke Wilde.
-          |  All rights reserved
-
-        ul.contact
-          li
-            a.twitter(href="https://twitter.com/lukewilde")
-              strong Twitter
-          li
-            a.linkedin(href="http://uk.linkedin.com/in/lwilde1")
-              strong LinkedIn
-          li
-            a.email(mailto="luke.wilde@gmail.com")
-              strong Email
-          li
-            a.cv(href=properties.siteUrl + "/cv")
-              strong CV
-          li
-            a.rss(href=properties.siteUrl + "/rss")
-              strong RSS
+      include footer
 
   block scripts
     script(src="/js/lib/jquery-2.1.1.min.js")
