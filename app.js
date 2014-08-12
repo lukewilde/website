@@ -22,7 +22,6 @@ function compile(str, path) {
     .set('compress', true)
     .define('url', stylus.url(
       { paths: [__dirname + '/public']
-      , limit: 10000
       }
     )
   )
@@ -36,14 +35,16 @@ app.use(compress())
 app.use(passport.initialize())
 app.use(passport.session())
 app.use(morgan('short'))
-app.use(express.static(__dirname + '/public'))
-app.set('views', __dirname + '/templates')
-app.set('view engine', 'jade')
+
 app.use(stylus.middleware(
   { src: __dirname + '/public/css/'
   , compile: compile
   }
 ))
+
+app.use(express.static(__dirname + '/public'))
+app.set('views', __dirname + '/templates')
+app.set('view engine', 'jade')
 
 app.locals.properties = properties
 
