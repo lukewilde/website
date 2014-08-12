@@ -38,6 +38,7 @@ app.use(morgan('short'))
 
 app.use(stylus.middleware(
   { src: __dirname + '/public/css/'
+  , debug: true
   , compile: compile
   }
 ))
