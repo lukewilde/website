@@ -1,0 +1,14 @@
+extends ../layout
+
+block lead
+  h2.blog-post-title
+    a(href="/blog/" + item.slug)=item.headline
+
+block content
+
+  div.blog-post
+    p.blog-post-meta=item.published
+    !=item.body
+
+append scripts
+  !=item.scripts
