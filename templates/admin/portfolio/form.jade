@@ -4,7 +4,7 @@ block container
   div.container-fluid
 
     block content
-      h1.page-header Article Control
+      h1.page-header Portfolio Control
 
       if (errors)
         div.panel.panel-default.panel-danger
@@ -50,13 +50,13 @@ block container
                         if (errors && errors.subtitle)
                           span.help-block=errors.subtitle
 
-                    .form-group(class=errors && errors.description ? "has-error" : "")
+                    .form-group(class=errors && errors.tech ? "has-error" : "")
                       .col-sm-2
-                        label.control-label(for="description") Description
+                        label.control-label(for="tech") Technologies
                       .col-sm-10
-                        textarea.form-control(v-model="input", name="description", rows=5)=item.description
-                        if (errors && errors.description)
-                          span.help-block=errors.description
+                        input.form-control(type="text", name="tech", value=item.tech)
+                        if (errors && errors.tech)
+                          span.help-block=errors.tech
 
                     .form-group(class=errors && errors.body ? "has-error" : "")
                       #editor
