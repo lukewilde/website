@@ -18,21 +18,21 @@ block content
           th Created
           th Delete
       tbody
-        for article in articles
+        for item in items
           tr
             td
-              a.btn.btn-primary(href="/admin/article/edit/" + article.slug) Edit
+              a.btn.btn-primary(href="/admin/article/edit/" + item.slug) Edit
             td
-              a(href="/blog/" + article.slug + "?preview")=article.headline
-            td=article.slug
-            td=article.description
-            td=article.published
+              a(href="/blog/" + item.slug + "?preview")=item.headline
+            td=item.slug
+            td=item.description
+            td=item.published
             td
-              if article.isLive
+              if item.isLive
                 span.label.label-success Yes
               else
                 span.label.label-danger No
-            td=article.created
+            td=item.created
             td
-              a.btn.btn-danger(href="/admin/article/delete/" + article._id) Delete
+              a.btn.btn-danger(href="/admin/article/delete/" + item._id) Delete
 

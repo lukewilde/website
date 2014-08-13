@@ -30,7 +30,7 @@ block container
                       .col-sm-2
                         label.control-label(for="headline") Headline
                       .col-sm-10
-                        input.form-control(type="text", name="headline", value=article.headline)
+                        input.form-control(type="text", name="headline", value=item.headline)
                         if (errors && errors.headline)
                           span.help-block=errors.headline
 
@@ -38,7 +38,7 @@ block container
                       .col-sm-2
                         label.control-label(for="slug") Slug
                       .col-sm-10
-                        input.form-control(type="text", name="slug", value=article.slug)
+                        input.form-control(type="text", name="slug", value=item.slug)
                         if (errors && errors.slug)
                           span.help-block=errors.slug
 
@@ -46,7 +46,7 @@ block container
                       .col-sm-2
                         label.control-label(for="subtitle") Subtitle
                       .col-sm-10
-                        input.form-control(type="text", name="subtitle", value=article.subtitle)
+                        input.form-control(type="text", name="subtitle", value=item.subtitle)
                         if (errors && errors.subtitle)
                           span.help-block=errors.subtitle
 
@@ -54,7 +54,7 @@ block container
                       .col-sm-2
                         label.control-label(for="description") Description
                       .col-sm-10
-                        textarea.form-control(v-model="input", name="description", rows=5)=article.description
+                        textarea.form-control(v-model="input", name="description", rows=5)=item.description
                         if (errors && errors.description)
                           span.help-block=errors.description
 
@@ -63,7 +63,7 @@ block container
                         .col-sm-2
                           label.control-label(for="body") Body
                         .col-sm-10.blog-main
-                          textarea.form-control(v-model="input", name="body", rows=20)=article.body
+                          textarea.form-control(v-model="input", name="body", rows=20)=item.body
                           if (errors && errors.body)
                             span.help-block=errors.body
 
@@ -71,7 +71,7 @@ block container
                       .col-sm-2
                         label.control-label(for="scripts") Scripts
                       .col-sm-10.blog-main
-                        textarea.form-control(v-model="input", name="scripts", rows=5)=article.scripts
+                        textarea.form-control(v-model="input", name="scripts", rows=5)=item.scripts
                         if (errors && errors.scripts)
                           span.help-block=errors.scripts
 
@@ -79,7 +79,7 @@ block container
                       .col-sm-2
                         label.control-label(for="published") Published Date
                       .col-sm-10
-                        input.form-control(type="text", name="published-pretty", value=article.published)
+                        input.form-control(type="text", name="published-pretty", value=item.published)
                         if (errors && errors.published)
                           span.help-block=errors.published
 
@@ -88,11 +88,11 @@ block container
                         .col-sm-10
                           .checkbox
                             label
-                              input(type="checkbox", name="isVisible", checked=article.isVisible)
+                              input(type="checkbox", name="isVisible", checked=item.isVisible)
                               | Is Visible
 
-                    input.form-control(type="hidden", name="published", value=article.published)
-                    input.form-control(type="hidden", name="_id", value=article._id)
+                    input.form-control(type="hidden", name="published", value=item.published)
+                    input.form-control(type="hidden", name="_id", value=item._id)
 
                     .btn-toolbar.toolbar
                       .btn-group
@@ -106,7 +106,7 @@ block container
 
 
             .col-md-6.preview
-              iframe.preview(src="/blog/" + article.slug + '?preview')
+              iframe.preview(src="/blog/" + item.slug + '?preview')
 
 
 
