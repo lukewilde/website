@@ -25,12 +25,13 @@ html
         .col-sm-6
           ul.nav.navbar-nav(role="navigation")
             li
-              a(href='/blog') Blog
-            li
               a(href='/portfolio') Portfolio
+            li
+              a(href='/blog') Blog
 
-      block lead
-        h2.lead.blog-description Freelance web and games programmer
+      div.lead
+        block lead
+          h2.blog-description Freelance web and games programmer
 
       .row.clear
         block content-container
