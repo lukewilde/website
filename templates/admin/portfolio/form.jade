@@ -58,6 +58,30 @@ block container
                         if (errors && errors.tech)
                           span.help-block=errors.tech
 
+                    .form-group(class=errors && errors.client ? "has-error" : "")
+                      .col-sm-2
+                        label.control-label(for="client") Client
+                      .col-sm-10
+                        input.form-control(type="text", name="client", value=item.client)
+                        if (errors && errors.client)
+                          span.help-block=errors.client
+
+                    .form-group(class=errors && errors.bigImage ? "has-error" : "")
+                      .col-sm-2
+                        label.control-label(for="bigImage") Big Image
+                      .col-sm-10
+                        input.form-control(type="text", name="bigImage", value=item.bigImage)
+                        if (errors && errors.bigImage)
+                          span.help-block=errors.bigImage
+
+                    .form-group(class=errors && errors.smallImage ? "has-error" : "")
+                      .col-sm-2
+                        label.control-label(for="smallImage") Small Image
+                      .col-sm-10
+                        input.form-control(type="text", name="smallImage", value=item.smallImage)
+                        if (errors && errors.smallImage)
+                          span.help-block=errors.smallImage
+
                     .form-group(class=errors && errors.body ? "has-error" : "")
                       #editor
                         .col-sm-2
