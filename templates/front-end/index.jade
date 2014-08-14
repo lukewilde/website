@@ -7,8 +7,7 @@ mixin post(article)
       p.date=article.published.short.month
         span=article.published.short.year
     .col-sm-9
-      a.title(href="/")=article.headline
-
+      a.title(href=article.url)=article.headline
 
 block content
   .splash

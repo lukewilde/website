@@ -26,7 +26,7 @@ block content
               a(href="/blog/" + item.slug + "?preview")=item.headline
             td=item.slug
             td=item.description
-            td=item.published
+            td=item.published.long
             td
               if item.isLive
                 span.label.label-success Yes
