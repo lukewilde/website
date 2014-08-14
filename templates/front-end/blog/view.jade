@@ -1,8 +1,7 @@
 extends ../layout
 
 block lead
-  h2.blog-post-title
-    a(href="/blog/" + article.slug)=article.headline
+  h2.blog-post-title=article.headline
 
 block content
 
