@@ -2,11 +2,11 @@ extends ../layout
 
 block lead
   h2.blog-post-title=article.headline
+  p.blog-post-meta=article.published.long
 
 block content
 
   div.blog-post
-    p.blog-post-meta=article.published.long
     !=article.body
 
 append scripts
