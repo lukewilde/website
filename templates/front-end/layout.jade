@@ -13,7 +13,7 @@ html
 
   body
 
-    .container
+    header.container
       .row.clear
         .col-sm-7.header-title
           img(src="/images/noodles.png")
@@ -29,16 +29,18 @@ html
             li
               a(href='/blog') Blog
 
-      div.lead
+    .lead
+      .container
         block lead
           h2.blog-description A freelance web and games developer who helps people build great digital experiences.
 
+    .container
       .row.clear
         block content-container
           .col-sm-12.blog-main
             block content
 
-      include footer
+    include footer
 
   block scripts
     script(src="/js/lib/jquery-2.1.1.min.js")
