@@ -4,7 +4,11 @@ block lead
   h2.lead.blog-description My Lovely Portfolio
 
 block content
-  .portfolio.row
-    for item in items
-      img(src=item.smallImage, title=item.headline, width="250px")
 
+    h2 Games
+
+    ul.portfolio
+
+      for item in items
+        li
+          img(src=item.smallImage, title=item.headline)
