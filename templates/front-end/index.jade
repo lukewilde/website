@@ -3,22 +3,24 @@ extends layout
 mixin post(article)
 
   .col-sm-6
-    .col-sm-3
+    .col-xs-3
       p.date=article.published.short.month
         span=article.published.short.year
-    .col-sm-9
+    .col-xs-9
       a.title(href=article.url)=article.headline
 
 block content
-  .splash
-    p.label LEGO Friends: Ranch
-    img(src="/images/lego-friends.png")
+  .row
+    .splash
+      p.label LEGO Friends: Ranch
+      img(src="/images/lego-friends.png")
 
-  .row.blog-stubs
+  .row
+    .blog-stubs
 
-    - for (var i = 0; i < articles.length; i += 2)
+      - for (var i = 0; i < articles.length; i += 2)
 
-      .row
-        mixin post(articles[i])
-        - if (i + 1 < articles.length)
-          mixin post(articles[i + 1])
+        .row
+          mixin post(articles[i])
+          - if (i + 1 < articles.length)
+            mixin post(articles[i + 1])
