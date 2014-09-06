@@ -82,6 +82,14 @@ block container
                         if (errors && errors.smallImage)
                           span.help-block=errors.smallImage
 
+                    .form-group(class=errors && errors.link ? "has-error" : "")
+                      .col-sm-2
+                        label.control-label(for="link") Link
+                      .col-sm-10
+                        input.form-control(type="text", name="link", value=item.link)
+                        if (errors && errors.link)
+                          span.help-block=errors.link
+
                     .form-group(class=errors && errors.body ? "has-error" : "")
                       #editor
                         .col-sm-2
