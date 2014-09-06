@@ -3,11 +3,12 @@ extends ../layout
 block lead
   h2.blog-post-title
     a(href="/portfolio/" + item.slug)=item.headline
+    p.blog-post-meta=item.published.long
 
 block content
 
   div.blog-post
-    p.blog-post-meta=item.published
+    img(src=item.bigImage, title=item.headline)
     !=item.body
 
 append scripts
