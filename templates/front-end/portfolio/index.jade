@@ -1,21 +1,28 @@
 extends ../layout
 
+mixin portfolioItem(article)
+
+  img(src=item.smallImage, title=item.headline)
+
 block lead
   h2.lead.blog-description My Lovely Portfolio
 
 block content
 
+  .portfolio
+
     h2 Games
 
-    ul.portfolio
+    ul
 
       for item in items
         li
-          img(src=item.smallImage, title=item.headline)
+          a(href='/portfolio/' + item.slug)
+            img(src=item.smallImage, title=item.headline)
 
     h2 Web
 
-    ul.portfolio
+    ul
 
       for item in items
         li
