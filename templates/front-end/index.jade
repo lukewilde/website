@@ -10,10 +10,13 @@ mixin post(article)
       a.title(href=article.url)=article.headline
 
 block content
-  .row
-    .splash
-      p.label LEGO Friends: Ranch
-      img(src="/images/portfolio/lego-friends-big.png")
+
+  if (portfolioItem)
+
+    .row
+      .splash
+        p.label #{portfolioItem.client}: #{portfolioItem.headline}
+        img(src=portfolioItem.bigImage, title=portfolioItem.headline)
 
   .row
     .blog-stubs
