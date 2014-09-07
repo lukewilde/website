@@ -120,6 +120,14 @@ block container
                         .col-sm-10
                           .checkbox
                             label
+                              input(type="checkbox", name="isFeatured", checked=item.isFeatured)
+                              | Is Featured
+
+                    .form-group
+                        .col-sm-2
+                        .col-sm-10
+                          .checkbox
+                            label
                               input(type="checkbox", name="isVisible", checked=item.isVisible)
                               | Is Visible
 
