@@ -42,14 +42,6 @@ block container
                         if (errors && errors.slug)
                           span.help-block=errors.slug
 
-                    .form-group(class=errors && errors.subtitle ? "has-error" : "")
-                      .col-sm-2
-                        label.control-label(for="subtitle") Subtitle
-                      .col-sm-10
-                        input.form-control(type="text", name="subtitle", value=item.subtitle)
-                        if (errors && errors.subtitle)
-                          span.help-block=errors.subtitle
-
                     .form-group(class=errors && errors.tech ? "has-error" : "")
                       .col-sm-2
                         label.control-label(for="tech") Technologies
@@ -89,6 +81,14 @@ block container
                         input.form-control(type="text", name="link", value=item.link)
                         if (errors && errors.link)
                           span.help-block=errors.link
+
+                    .form-group(class=errors && errors.description ? "has-error" : "")
+                      .col-sm-2
+                        label.control-label(for="description") Description
+                      .col-sm-10.blog-main
+                        textarea.form-control(v-model="input", name="description", rows=5)=item.description
+                        if (errors && errors.description)
+                          span.help-block=errors.description
 
                     .form-group(class=errors && errors.body ? "has-error" : "")
                       #editor
