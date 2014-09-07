@@ -8,7 +8,10 @@ block lead
 block content
 
   div.blog-post
-    img(src=item.bigImage, title=item.headline)
+    .splash
+      img(src=item.bigImage, title=item.headline)
+      p.label #{item.client}: #{item.headline}
+
     !=item.body
 
     a(href=item.link) Check it out now

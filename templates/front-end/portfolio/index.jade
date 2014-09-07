@@ -1,8 +1,11 @@
 extends ../layout
 
-mixin portfolioItem(article)
+mixin portfolioItem(item)
 
-  img(src=item.smallImage, title=item.headline)
+  a(href='/portfolio/' + item.slug)
+    img(src=item.smallImage, title=item.headline)
+    .hover-info
+      p.label #{item.client}: #{item.headline}
 
 block lead
   h2.lead.blog-description My Lovely Portfolio
@@ -17,8 +20,7 @@ block content
 
       for item in items
         li
-          a(href='/portfolio/' + item.slug)
-            img(src=item.smallImage, title=item.headline)
+          mixin portfolioItem(item)
 
     h2 Web
 
@@ -26,7 +28,7 @@ block content
 
       for item in items
         li
-          img(src=item.smallImage, title=item.headline)
+          mixin portfolioItem(item)
       for item in items
         li
-          img(src=item.smallImage, title=item.headline)
+          mixin portfolioItem(item)
