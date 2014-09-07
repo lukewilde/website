@@ -7,9 +7,11 @@ block lead
 block content
 
   div.blog-post
-    .splash
-      p.label #{item.client}: #{item.headline}
-      img(src=item.bigImage, title=item.headline)
+
+    .row
+      .splash
+        p.label #{item.client}: #{item.headline}
+        img(src=item.bigImage, title=item.headline)
 
     !=item.body
 
