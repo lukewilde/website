@@ -1,9 +1,8 @@
 extends ../layout
 
 block lead
-  h2.blog-post-title
-    a(href="/portfolio/" + item.slug)=item.headline
-    p.blog-post-meta=item.published.long
+  h2.blog-post-title=item.headline
+  p.blog-post-meta=item.published.long
 
 block content
 
@@ -14,7 +13,7 @@ block content
 
     !=item.body
 
-    a(href=item.link) Check it out now
+    a.btn.btn-primary.btn-lg.pull-right(href=item.link) Check it out
 
 append scripts
   !=item.scripts
