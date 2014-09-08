@@ -42,9 +42,13 @@ header
       color darkgreen
       text-decoration none
 
-    @media (min-width: @screen-sm-min)
-      .col-sm-6
-        margin-bottom 10px
+    @media (max-width: 768px)
+      .col-xs-9
+        padding-right 25px
+        padding-bottom 15px
+
+      .col-xs-3
+        padding-left 25px
 
   p.date
     text-align center
