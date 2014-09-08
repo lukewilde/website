@@ -11,13 +11,23 @@
     margin-bottom 15px
     padding 0 60px
 
-  @media (min-width: 768px) and (max-width: 979px)
+  @media (min-width: 768px)
 
     padding 40px 0px
 
     .col-sm-4.greetings
       padding 0 30px
 
+
+  @media (max-width: 767px)
+    .col-sm-4
+      padding 0 10px
+      border-right none
+
+    .col-sm-4.greetings
+      margin-bottom 50px
+      padding-right 10px
+      height auto
 
   .col-sm-4:last-child
     border-right none
