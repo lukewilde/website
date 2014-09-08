@@ -82,6 +82,19 @@ block container
                         if (errors && errors.link)
                           span.help-block=errors.link
 
+                    .form-group(class=errors && errors.type ? "has-error" : "")
+                      .col-sm-2
+                        label.control-label(for="type") Type
+                      .col-sm-10
+                        label.radio-inline
+                          input(type="radio", name="type", value="game", checked=item.type == 'game')
+                          | Game
+                        label.radio-inline
+                          input(type="radio", name="type", value="web", checked=item.type == 'web')
+                          | Web
+                        if (errors && errors.type)
+                          span.help-block=errors.type
+
                     .form-group(class=errors && errors.description ? "has-error" : "")
                       .col-sm-2
                         label.control-label(for="description") Description
