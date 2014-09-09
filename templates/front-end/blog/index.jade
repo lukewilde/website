@@ -4,16 +4,18 @@ block lead
   h2 My Very Own Blog
 
 block content
-  for article in articles
 
-    .row
-      div.blog-post
+
+  .blog-stubs.blog-index
+
+    for article in articles
+
+      //- make markup consistant with homepage (and make sure you use h3)
+      .row.stub
         .col-sm-12
           .col-xs-2
             p.date=article.published.short.month
               span=article.published.short.year
           .col-xs-10
-            a.title(href=article.url)
-              h3=article.headline
-
-            !=article.description
+            a.title(href=article.url)=article.headline
+            p.description!=article.description
