@@ -87,7 +87,7 @@ h6, .h6
       border-radius 30px
 
 .blog-stubs.blog-index
-  p.date
+  .date
     font-size 30px
 
     span
@@ -131,3 +131,16 @@ h6, .h6
 img, svg
   display block
   margin 0 auto
+
+@media (max-width: 768px)
+  .blog-stubs.blog-index
+
+    .row.stub
+      .title
+        font-size 18px
+
+      p.date
+          font-size 20px
+
+        span
+          font-size 16px
