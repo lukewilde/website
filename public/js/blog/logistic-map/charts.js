@@ -5,15 +5,16 @@ window.d3.csv('/js/blog/logistic-map/data.csv', function(error, data) {
   })
 
   var w = 600
-    , h = 270
+    , h = 300
     , margin = { top: 50, right: 10, bottom: 25, left: 55}
     , y = window.d3.scale.linear().domain([0, 1]).range([0 + margin.top, h - margin.bottom])
     , x = window.d3.scale.linear().domain([0, 50]).range([0 + margin.left, w - margin.right])
 
   var vis = window.d3.select('.graph-01')
         .append('svg:svg')
-        .attr('width', w)
-        .attr('height', h)
+        .attr('width', '100%')
+        .attr('viewBox', '0 0 600 300')
+        .attr('preserveAspectRatio', true)
 
 
 vis.selectAll('line.horizontalGrid').data(y.ticks(5)).enter()

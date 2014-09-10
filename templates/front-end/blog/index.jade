@@ -12,10 +12,9 @@ block content
 
       //- make markup consistant with homepage (and make sure you use h3)
       .row.stub
-        .col-sm-12
-          .col-xs-3
-            p.date=article.published.short.month
-              span=article.published.short.year
-          .col-xs-9
-            a.title(href=article.url)=article.headline
-            p.description!=article.description
+        .col-xs-3
+          p.date=article.published.short.month
+            span=article.published.short.year
+        .col-xs-9
+          a.title(href=article.url)=article.headline
+          p.description!=article.description
