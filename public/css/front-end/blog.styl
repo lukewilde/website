@@ -103,6 +103,9 @@ h6, .h6
   .row.stub
     margin-bottom 25px
 
+  .row.stub:last-child
+    margin-bottom 0
+
 .blog-post
 
   p, li
@@ -163,19 +166,6 @@ img, svg
   display block
   margin 0 auto
 
-@media (max-width: 768px)
-  .blog-stubs.blog-index
-
-    .row.stub
-      .title
-        font-size 18px
-
-      p.date
-          font-size 20px
-
-        span
-          font-size 16px
-
 .blog-stubs
 
   overflow-x hidden
@@ -213,3 +203,21 @@ img, svg
       color gray
       line-height 6px
       font-size 16px
+
+
+@media (max-width: 660px)
+  .blog-stubs, .blog-stubs.blog-index
+
+    .row
+      .title
+        font-size 16px
+
+      .description
+        font-size 13px
+
+      p.date
+          font-size 15px
+          padding-top 2px
+
+        span
+          font-size 14px
