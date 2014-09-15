@@ -14,8 +14,6 @@ window.d3.csv('/js/blog/logistic-map/data.csv', function(error, data) {
         .append('svg:svg')
         .attr('width', '100%')
         .attr('viewBox', '0 0 600 300')
-        .attr('preserveAspectRatio', true)
-
 
 vis.selectAll('line.horizontalGrid').data(y.ticks(5)).enter()
     .append('line').attr(
