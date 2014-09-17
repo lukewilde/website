@@ -1,7 +1,8 @@
 extends ../layout
 
 block lead
-  h2.blog-post-title=item.headline
+  h2.blog-post-title #{item.client}: #{item.headline}
+  span.tech=item.tech
   p.blog-post-meta=item.published.long
 
 block content
@@ -10,7 +11,6 @@ block content
 
     .row
       .splash
-        p.label #{item.client}: #{item.headline}
         img(src=item.bigImage, title=item.headline)
 
     !=item.body
