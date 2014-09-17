@@ -11,7 +11,8 @@ block content
 
     .row
       .splash
-        img(src=item.bigImage, title=item.headline)
+        a(href=item.link)
+          img(src=item.bigImage, title=item.headline)
 
     !=item.body
 
