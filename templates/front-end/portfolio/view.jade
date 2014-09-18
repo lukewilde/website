@@ -1,5 +1,8 @@
 extends ../layout
 
+block title
+  title #{item.client}: #{item.headline} #{properties.title}
+
 block lead
   h2.blog-post-title #{item.client}: #{item.headline}
   span.tech=item.tech

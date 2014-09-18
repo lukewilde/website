@@ -1,5 +1,8 @@
 extends ../layout
 
+block title
+  title #{article.headline} #{properties.title}
+
 block lead
   h2.blog-post-title=article.headline
   p.blog-post-meta=article.published.long
