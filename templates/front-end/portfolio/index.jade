@@ -3,7 +3,7 @@ extends ../layout
 mixin portfolioItem(item)
 
   a(href='/portfolio/' + item.slug)
-    img(src=item.smallImage, title=item.headline)
+    img(src=item.smallImage, title=item.headline, alt=title=item.headline)
     .hover-info
       p.label #{item.client}: #{item.headline}
 
