@@ -98,7 +98,7 @@ h6, .h6
     color #7f7f7f
 
   .title
-    font-size 26px
+    font-size 22px
 
   .row.stub
     margin-bottom 25px
@@ -108,16 +108,10 @@ h6, .h6
 
 .blog-post
 
-  p, li
+  p, li, td
     letter-spacing 1px
     font-size 16px
-    color #1F1F1F
-
-  h2
-    font-size 22px
-    font-weight bold
-    color gray
-    margin 21px 0 10px 0
+    color darktext
 
   a
     color green
@@ -137,18 +131,31 @@ h6, .h6
       min-height 150px
       max-height 300px
 
+  table
+    margin 30px auto
+
+    thead
+      border-bottom 1px solid gray
+
+    td, th
+      padding 1px 9px
+      letter-spacing 1px
+
+    th
+      color darkgray
+
 .lead h2.blog-post-title
   margin-bottom 0
   padding-bottom 0
 
 .blog-post-meta
   margin-bottom 20px
-  color #999
+  color lightgray
   font-size 17px
 
 .blog-footer
   padding 40px 0
-  color #999
+  color lightgray
   text-align center
   background-color #f9f9f9
 
@@ -158,6 +165,8 @@ h6, .h6
 
 .blog-main pre code
   color #93a1a1
+  word-wrap initial
+  white-space inherit
 
   span
     white-space nowrap

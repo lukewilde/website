@@ -15,14 +15,16 @@ html
 
     link(rel='stylesheet', href='/css/front-end/index.css')
 
-    title=properties.title
+    block title
+      title Freelance web and games programmer #{properties.title}
 
   body
 
     header.container
       .row.clear
         .col-sm-7.header-title
-          img.logo(src="/images/noodles.svg")
+          a(href='/')
+            img.logo(src="/images/noodles.svg")
           h1.blog-title
             a(href='/') Luke Wilde
               span Web & Games Programmer
@@ -42,7 +44,7 @@ html
     .lead
       .container
         block lead
-          h2 A freelance web and games developer who helps people build great digital experiences.
+          h2 A freelance programmer who helps people create digital experiences
 
     svg.lead-svg(width="100%", height="25px", viewBox="0 0 100 10", version="1.1", preserveAspectRatio="none", xmlns="http://www.w3.org/2000/svg")
       polygon(points="0 0, 100 0, 0 10", fill="#f5f5f5")

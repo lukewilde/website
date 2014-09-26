@@ -1,7 +1,11 @@
 extends ../layout
 
+block title
+  title #{item.client}: #{item.headline} #{properties.title}
+
 block lead
-  h2.blog-post-title=item.headline
+  h2.blog-post-title #{item.client}: #{item.headline}
+  span.tech=item.tech
   p.blog-post-meta=item.published.long
 
 block content
@@ -10,12 +14,12 @@ block content
 
     .row
       .splash
-        p.label #{item.client}: #{item.headline}
-        img(src=item.bigImage, title=item.headline)
+        a(href=item.link)
+          img(src=item.bigImage, title=item.headline)
 
     !=item.body
 
-    a.btn.btn-primary.btn-lg.pull-right(href=item.link) Check it out
+    a.btn.btn-lg.pull-right(href=item.link) Check it out
 
 append scripts
   !=item.scripts
