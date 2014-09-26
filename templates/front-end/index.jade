@@ -17,7 +17,7 @@ block content
       .splash
         a(href='/portfolio/' + portfolioItem.slug)
           p.label #{portfolioItem.client}: #{portfolioItem.headline}
-          img(src=portfolioItem.bigImage, title=portfolioItem.headline)
+          img(src=portfolioItem.bigImage, title=portfolioItem.headline, alt=portfolioItem.headline)
 
   .row
     .blog-stubs.index
