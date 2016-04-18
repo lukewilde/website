@@ -29,8 +29,16 @@ function compile(str, path) {
 }
 
 app.use(cookieParser())
-app.use(bodyParser())
-app.use(session({ secret: '....well good open sourced key you got there mate' }))
+app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json())
+
+app.use(session(
+  { resave: true
+  , saveUninitialized: true
+  , secret: '....well good open sourced key you got there mate'
+  }
+))
+
 app.use(flash())
 app.use(compress())
 app.use(passport.initialize())
