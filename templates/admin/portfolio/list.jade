@@ -6,7 +6,7 @@ block content
     a.btn.btn-primary.pull-right(href='/admin/portfolio/new') New Portfolio Item
 
   for type in types
-    h2=type[0].type
+    h2=type.title
 
     .table-responsive
       table.table.table-striped
@@ -21,7 +21,7 @@ block content
             th Created
             th Delete
         tbody
-          for item in type
+          for item in type.items
             tr
               td
                 a.btn.btn-primary(href="/admin/portfolio/edit/" + item.slug) Edit
