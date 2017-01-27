@@ -46,3 +46,6 @@ public/css/*.css
 public/css/main/*.css
 public/css/admin/*.css
 /.monitor
+
+# db dumps
+dumps/*
