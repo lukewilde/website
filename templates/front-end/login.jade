@@ -24,27 +24,39 @@ block content-container
 
             button.btn.btn-primary(type="submit") Login
 
-          form
-            .form-group.key-pad
+          form.key-pad
+            .form-group
               .form-group
                 input.form-control(type="text", name="gtfo", placeholder=">")
-              .container
+              .container-fluid
                 .row
-                  button(type="button", class="btn btn-secondary") Fuck
-                  button(type="button", class="btn btn-secondary") Flaps
-                  button(type="button", class="btn btn-secondary") The
+                  .col-xs-4
+                    button(type="button").btn.btn-default Fuck
+                  .col-xs-4
+                    button(type="button").btn.btn-default Flaps
+                  .col-xs-4
+                    button(type="button").btn.btn-default The
                 .row
-                  button(type="button", class="btn btn-secondary") Cunt
-                  button(type="button", class="btn btn-secondary") Your
-                  button(type="button", class="btn btn-secondary") Ding
+                  .col-xs-4
+                    button(type="button").btn.btn-default Cunt
+                  .col-xs-4
+                    button(type="button").btn.btn-default Your
+                  .col-xs-4
+                    button(type="button").btn.btn-default Legs
                 .row
-                  button(type="button", class="btn btn-secondary") Shit
-                  button(type="button", class="btn btn-secondary") You
-                  button(type="button", class="btn btn-secondary") Head
+                  .col-xs-4
+                    button(type="button").btn.btn-default Shit
+                  .col-xs-4
+                    button(type="button").btn.btn-default You
+                  .col-xs-4
+                    button(type="button").btn.btn-default Head
                 .row
-                  button(type="button", class="btn btn-warning") Clear
-                  button(type="button", class="btn btn-secondary") Mother
-                  button(type="button", class="btn btn-primary") Enter
+                  .col-xs-4
+                    button(type="button").btn.btn-warning Clear
+                  .col-xs-4
+                    button(type="button").btn.btn-default Mother
+                  .col-xs-4
+                    button(type="button").btn.btn-primary Enter
 
 append scripts
   script(src="https://code.responsivevoice.org/responsivevoice.js")
@@ -64,7 +76,7 @@ append scripts
           break
         default:
           var oldText = input.val()
-          var newText = oldText + " " + this.innerHTML
+          var newText = $.trim(oldText + " " + this.innerHTML)
 
           input.val(newText)
           break
