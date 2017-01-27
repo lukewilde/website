@@ -18,8 +18,39 @@ block content-container
               label(for="username") Username
               input.form-control(type="text", name="username", placeholder="Username")
 
-            .form-group
+            .form-group.hidden
               label(for="password") Password
               input.form-control(type="password", name="password", placeholder="Password")
 
+            .form-group.key-pad
+              .form-group
+                input.form-control(type="text", name="gtfo", placeholder=">", disabled)
+              .container
+                .row
+                  button(type="button", class="btn btn-secondary") Fuck
+                  button(type="button", class="btn btn-secondary") Shit
+                  button(type="button", class="btn btn-secondary") Cunt
+                .row
+                  button(type="button", class="btn btn-secondary") Flaps
+                  button(type="button", class="btn btn-secondary") Your
+                  button(type="button", class="btn btn-secondary") The
+                .row
+                  button(type="button", class="btn btn-secondary") Shitty
+                  button(type="button", class="btn btn-secondary") Bell
+                  button(type="button", class="btn btn-secondary") Bed
+                .row
+                  button(type="button", class="btn btn-secondary") C
+                  button(type="button", class="btn btn-secondary") Mother
+                  button(type="button", class="btn btn-secondary") Enter
+
+
             button.btn.btn-primary(type="submit") Login
+
+append scripts
+  script(src="https://code.responsivevoice.org/responsivevoice.js")
+  script.
+    $(function() {
+      $('button').click(function() {
+        responsiveVoice.speak(this.innerHTML);
+      });
+    });
