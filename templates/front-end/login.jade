@@ -13,44 +13,62 @@ block content-container
       div.panel.panel-default(class=failedAttempt ? "panel-danger" : "").login
         div.panel-body
 
-          form(action="/login", method="post", role="form")
+          form(action="/login", method="post", role="form").hidden
             .form-group
               label(for="username") Username
               input.form-control(type="text", name="username", placeholder="Username")
 
-            .form-group.hidden
+            .form-group
               label(for="password") Password
               input.form-control(type="password", name="password", placeholder="Password")
 
+            button.btn.btn-primary(type="submit") Login
+
+          form
             .form-group.key-pad
               .form-group
-                input.form-control(type="text", name="gtfo", placeholder=">", disabled)
+                input.form-control(type="text", name="gtfo", placeholder=">")
               .container
                 .row
                   button(type="button", class="btn btn-secondary") Fuck
-                  button(type="button", class="btn btn-secondary") Shit
-                  button(type="button", class="btn btn-secondary") Cunt
-                .row
                   button(type="button", class="btn btn-secondary") Flaps
-                  button(type="button", class="btn btn-secondary") Your
                   button(type="button", class="btn btn-secondary") The
                 .row
-                  button(type="button", class="btn btn-secondary") Shitty
-                  button(type="button", class="btn btn-secondary") Bell
-                  button(type="button", class="btn btn-secondary") Bed
+                  button(type="button", class="btn btn-secondary") Cunt
+                  button(type="button", class="btn btn-secondary") Your
+                  button(type="button", class="btn btn-secondary") Ding
                 .row
-                  button(type="button", class="btn btn-secondary") C
+                  button(type="button", class="btn btn-secondary") Shit
+                  button(type="button", class="btn btn-secondary") You
+                  button(type="button", class="btn btn-secondary") Head
+                .row
+                  button(type="button", class="btn btn-warning") Clear
                   button(type="button", class="btn btn-secondary") Mother
-                  button(type="button", class="btn btn-secondary") Enter
-
-
-            button.btn.btn-primary(type="submit") Login
+                  button(type="button", class="btn btn-primary") Enter
 
 append scripts
   script(src="https://code.responsivevoice.org/responsivevoice.js")
   script.
     $(function() {
       $('button').click(function() {
-        responsiveVoice.speak(this.innerHTML);
+
+        var buttonText = this.innerHTML
+        var input = $('input[name=gtfo]')
+
+        switch(buttonText) {
+        case 'Enter':
+          responsiveVoice.speak(input.val());
+          break
+        case 'Clear':
+          input.val('')
+          break
+        default:
+          var oldText = input.val()
+          var newText = oldText + " " + this.innerHTML
+
+          input.val(newText)
+          break
+        }
+
       });
     });
