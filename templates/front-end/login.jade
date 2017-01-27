@@ -69,7 +69,7 @@ append scripts
 
         switch(buttonText) {
         case 'Enter':
-          responsiveVoice.speak(input.val());
+          submitCode(input.val());
           break
         case 'Clear':
           input.val('')
@@ -84,3 +84,18 @@ append scripts
 
       });
     });
+
+    function submitCode(code) {
+
+      $.post('/login/keycode', { code: code }, function(result) {
+        console.log('is good?', result.isCorrect);
+      })
+
+      responsiveVoice.speak(code, 'UK English Female', {
+        onstart: function() {
+
+        }, onend: function() {
+
+        }
+      });
+    }
