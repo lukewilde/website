@@ -6,7 +6,6 @@ var express = require('express')
   , bodyParser = require('body-parser')
   , session = require('express-session')
   , morgan = require('morgan')
-  , path = require('path')
   , compress = require('compression')
   , properties = require('./properties')
   , serviceLocator = require('service-locator')()
@@ -18,13 +17,12 @@ var express = require('express')
   , port = 3112
   , app = express()
 
-function compile(str, file) {
-
+function compile(str, path) {
   return stylus(str)
-    .set('filename', file)
+    .set('filename', path)
     .set('compress', true)
     .define('url', stylus.url(
-      { paths: [path.join(__dirname, 'public')]
+      { paths: [__dirname + '/public']
       }
     )
   )
@@ -48,13 +46,14 @@ app.use(passport.session())
 app.use(morgan('short'))
 
 app.use(stylus.middleware(
-  { src: path.join(__dirname, 'public','css')
+  { src: __dirname + '/public/css/'
+  , debug: true
   , compile: compile
   }
 ))
 
-app.use(express.static(path.join('public')))
-app.set('views', path.join(__dirname, 'templates'))
+app.use(express.static(__dirname + '/public'))
+app.set('views', __dirname + '/templates')
 app.set('view engine', 'jade')
 
 app.locals.properties = properties
