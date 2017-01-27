@@ -13,7 +13,7 @@ block content-container
       div.panel.panel-default(class=failedAttempt ? "panel-danger" : "").login
         div.panel-body
 
-          form(action="/login", method="post", role="form").hidden
+          form.serious-login(action="/login", method="post", role="form", style="display:none")
             .form-group
               label(for="username") Username
               input.form-control(type="text", name="username", placeholder="Username")
@@ -87,15 +87,30 @@ append scripts
 
     function submitCode(code) {
 
+      if (!code) {
+        return;
+      }
+
+      var input = $('input[name=gtfo]')
+
       $.post('/login/keycode', { code: code }, function(result) {
-        console.log('is good?', result.isCorrect);
+
+      var colour = result.isCorrect ? "4cae4c" : "d9534f"
+
+        input.css('background-color', '#' + colour);
+
+        responsiveVoice.speak(code, 'UK English Female', {
+          onend: function() {
+
+          if (result.isCorrect) {
+            $('.key-pad').hide()
+            $('.serious-login').show()
+          }
+
+          input.css('background-color', 'white');
+
+          }
+        });
       })
 
-      responsiveVoice.speak(code, 'UK English Female', {
-        onstart: function() {
-
-        }, onend: function() {
-
-        }
-      });
     }
