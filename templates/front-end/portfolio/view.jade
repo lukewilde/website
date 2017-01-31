@@ -19,7 +19,8 @@ block content
 
     !=item.body
 
-    a.btn.btn-lg.pull-right(href=item.link) Check it out
+    if item.hasLink
+      a.btn.btn-lg.pull-right(href=item.link) Check it out
 
 append scripts
   !=item.scripts
