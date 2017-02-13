@@ -47,7 +47,7 @@ app.use(passport.session())
 app.use(morgan('short'))
 
 app.use(stylus.middleware(
-  { src: path.resolve(__dirname + '/public/css/')
+  { src: path.join(__dirname, 'public', 'css')
   , debug: true
   , compile: compile
   }
