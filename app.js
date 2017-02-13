@@ -6,6 +6,7 @@ var express = require('express')
   , bodyParser = require('body-parser')
   , session = require('express-session')
   , morgan = require('morgan')
+  , path = require('path')
   , compress = require('compression')
   , properties = require('./properties')
   , serviceLocator = require('service-locator')()
@@ -46,7 +47,7 @@ app.use(passport.session())
 app.use(morgan('short'))
 
 app.use(stylus.middleware(
-  { src: __dirname + '/public/css/'
+  { src: path.resolve(__dirname + '/public/css/')
   , debug: true
   , compile: compile
   }
