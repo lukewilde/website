@@ -35,7 +35,7 @@ app.use(bodyParser.json())
 app.use(session(
   { resave: true
   , saveUninitialized: true
-  , secret: '....well good open sourced key you got there mate'
+  , secret: process.env.SESSION_SECRET || 'dev secret'
   }
 ))
 
